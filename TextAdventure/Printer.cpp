@@ -13,6 +13,7 @@ Printer::Printer()
 
 void Printer::print(string str)
 {
+	cout << std::endl;
 	if (debugMode)
 	{
 		cout << str;
@@ -20,6 +21,7 @@ void Printer::print(string str)
 	}
 	
 	typeText(str, 3, 30, 200);
+	cout << std::endl;
 }
 
 void Printer::printByLine(string str)
@@ -52,17 +54,17 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 
 void Printer::printMainStats()
 {
-	print(player->mainStats() + "\n");
+	print(player->mainStats());
 }
 
 void Printer::printCombatStats()
 {
-	print(player->combatStats() + "\n");
+	print(player->combatStats());
 }
 
 void Printer::printAllStats()
 {
-	print(player->allStats() + "\n");
+	print(player->allStats());
 }
 
 

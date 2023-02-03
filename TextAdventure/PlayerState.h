@@ -25,5 +25,5 @@ private:
 	int speed;
 	int level;
 
-	string SPACE = "    ";
+	const string SPACE = "    ";
 };
