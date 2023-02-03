@@ -12,7 +12,10 @@ public:
 	void printMainStats();
 	void printCombatStats();
 	void printAllStats();
+	
+	bool debugMode = true;
 
 private:
 	shared_ptr<PlayerState> player;
+	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine);
 };

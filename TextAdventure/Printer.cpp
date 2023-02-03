@@ -13,31 +13,41 @@ Printer::Printer()
 
 void Printer::print(string str)
 {
+	if (debugMode)
+	{
+		cout << str;
+		return;
+	}
+	
+	typeText(str, 3, 30, 200);
+}
+
+void Printer::printByLine(string str)
+{
+	if (debugMode)
+	{
+		cout << str;
+		return;
+	}
+	
+	typeText(str, 0, 0, 300);
+}
+
+void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)
+{
 	for (char c : str)
 	{
 		cout << c;
 		if (c == ' ')
 		{
-			sleep_for(milliseconds(30));
+			sleep_for(milliseconds(msAfterWord));
 		}
 		else
 		{
-			sleep_for(milliseconds(3));
+			sleep_for(milliseconds(msAfterChar));
 		}
 	}
-	sleep_for(milliseconds(200));
-}
-
-void Printer::printByLine(string str)
-{
-	for (char c : str)
-	{
-		cout << c;
-		if (c == '\n')
-		{
-			sleep_for(milliseconds(200));
-		}
-	}
+	sleep_for(milliseconds(msAfterLine));
 }
 
 void Printer::printMainStats()
@@ -54,3 +64,5 @@ void Printer::printAllStats()
 {
 	print(player->allStats() + "\n");
 }
+
+
