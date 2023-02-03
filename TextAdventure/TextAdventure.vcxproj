@@ -127,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Area.cpp" />
+    <ClCompile Include="CommandHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Printer.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Ship.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Area.h" />
+    <ClInclude Include="CommandHandler.h" />
+    <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="Printer.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Ship.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
