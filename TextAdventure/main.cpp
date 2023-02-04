@@ -22,7 +22,7 @@ int main()
     string command;
     while (std::getline(std::cin, command)) {
         handler->handle(command);
-        //player->addHealth(-3); // TODO
+        player->addHealth(-3);
         printer->printMainStats();
         printer->prompt();
     }
