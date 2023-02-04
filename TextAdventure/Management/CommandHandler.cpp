@@ -53,12 +53,20 @@ bool CommandHandler::execute(string command)
 	else if (command == STATS)
 	{
 		shouldTick = false;
-		printer->printAllStats();
 	}
 	else if (command == INVENTORY)
 	{
 		shouldTick = false;
 		printer->print("Your inventory is empty... unless you count pocket lint.");
+	}
+	else if (command == "start timer")
+	{
+		clock->startTimer(std::bind(&CommandHandler::testFunc, this, std::placeholders::_1), 3);
+		shouldTick = false;
+	}
+	else if (command == WAIT)
+	{
+		// waiting
 	}
 	else
 	{

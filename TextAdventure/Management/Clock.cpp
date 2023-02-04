@@ -1,4 +1,7 @@
 #include "Clock.h"
+#include <iostream>  // TODO remove
+using std::cout; // TODO remove remove
+using std::endl; // remove
 
 shared_ptr<Clock> Clock::instance = nullptr;
 
@@ -16,15 +19,37 @@ Clock::Clock()
 	gameTime = 0;
 }
 
-vector<string> Clock::tick()
+bool Clock::tick()
 {
+	bool success = true;
 	gameTime++;
-	vector<string> finishedTimers;
+	//cout << endl << endl << "gameTime is: " << gameTime << endl << endl;
 
-	return finishedTimers;
+	for (auto timer : timers)
+	{
+		//cout << endl << endl << "time of detonation: " << timer.second << endl << endl;
+		if (gameTime >= timer.second)
+		{
+			if (timer.first("")) // call function
+			{
+				timers.erase(timer.first);
+			}
+			else
+			{
+				success = false;
+			}
+		}
+	}
+
+	return success;
 }
 
 int Clock::getGameTime()
 {
 	return gameTime;
+}
+
+void Clock::startTimer(function<bool(string)> func, int length)
+{
+	timers.insert({ func,  gameTime + length });
 }
