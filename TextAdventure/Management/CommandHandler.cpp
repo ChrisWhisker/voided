@@ -1,5 +1,4 @@
 #include "CommandHandler.h"
-#include "PlayerState.h"
 #include <iostream>
 using std::cout;
 
@@ -34,9 +33,11 @@ void CommandHandler::handle(string command)
 bool CommandHandler::execute(string command)
 {
 	bool executed = true;
+	bool shouldTick = true;
 
 	if (command == HELP)
 	{
+		shouldTick = false;
 		
 		cout << "\n";
 		for (auto p : commands)
@@ -51,18 +52,25 @@ bool CommandHandler::execute(string command)
 	//}
 	else if (command == STATS)
 	{
+		shouldTick = false;
 		printer->printAllStats();
 	}
 	else if (command == INVENTORY)
 	{
+		shouldTick = false;
 		printer->print("Your inventory is empty... unless you count pocket lint.");
 	}
 	else
 	{
 		cout << ("That command is not recognized.\n");
 		executed = false;
+		shouldTick = false;
 	}
 
+	if (shouldTick)
+	{
+		clock->tick();
+	}
 
 	return executed;
 }

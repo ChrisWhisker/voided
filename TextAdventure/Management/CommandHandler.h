@@ -1,4 +1,6 @@
 #pragma once
+#include "Clock.h"
+#include "PlayerState.h"
 #include "Printer.h"
 #include <map>
 #include <memory>
@@ -16,6 +18,7 @@ private:
 	static shared_ptr<CommandHandler> instance;
 	CommandHandler();
 
+	shared_ptr<Clock> clock;
 	shared_ptr<Printer> printer;
 	shared_ptr<PlayerState> player;
 

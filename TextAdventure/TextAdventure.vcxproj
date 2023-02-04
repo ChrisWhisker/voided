@@ -129,20 +129,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CommandHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="PlayerState.cpp" />
-    <ClCompile Include="Printer.cpp" />
+    <ClCompile Include="Management\Clock.cpp" />
+    <ClCompile Include="Management\CommandHandler.cpp" />
+    <ClCompile Include="Management\PlayerState.cpp" />
+    <ClCompile Include="Management\Printer.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="ShipBridge.cpp" />
     <ClCompile Include="ShipPassageway.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommandHandler.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="PlayerState.h" />
-    <ClInclude Include="Printer.h" />
+    <ClInclude Include="Management\Clock.h" />
+    <ClInclude Include="Management\CommandHandler.h" />
+    <ClInclude Include="Management\PlayerState.h" />
+    <ClInclude Include="Management\Printer.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="ShipBridge.h" />
     <ClInclude Include="ShipPassageway.h" />
