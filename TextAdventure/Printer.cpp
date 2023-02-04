@@ -8,19 +8,19 @@ using std::this_thread::sleep_for;
 
 shared_ptr<Printer> Printer::instance = nullptr;
 
-Printer::Printer()
-{
-	player = PlayerState::getInstance();
-	srand(time(0));
-}
-
 shared_ptr<Printer> Printer::getInstance()
 {
 	if (!instance)
 	{
-		return std::make_shared<Printer>(Printer());
+		instance = std::make_shared<Printer>(Printer());
 	}
 	return instance;
+}
+
+Printer::Printer()
+{
+	player = PlayerState::getInstance();
+	srand(time(0));
 }
 
 void Printer::prompt()

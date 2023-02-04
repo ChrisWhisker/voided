@@ -5,6 +5,15 @@ using std::to_string;
 
 shared_ptr<PlayerState> PlayerState::instance = nullptr;
 
+shared_ptr<PlayerState> PlayerState::getInstance()
+{
+	if (!instance)
+	{
+		instance = std::make_shared<PlayerState>(PlayerState());
+	}
+	return instance;
+}
+
 PlayerState::PlayerState()
 {
 	health = 62;
@@ -13,15 +22,6 @@ PlayerState::PlayerState()
 	attackStrength = 5;
 	speed = 5;
 	level = 1;
-}
-
-shared_ptr<PlayerState> PlayerState::getInstance()
-{
-	if (!instance)
-	{
-		return std::make_shared<PlayerState>(PlayerState());
-	}
-	return instance;
 }
 
 string PlayerState::mainStats()

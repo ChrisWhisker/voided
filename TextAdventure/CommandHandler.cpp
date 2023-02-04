@@ -8,7 +8,7 @@ shared_ptr<CommandHandler> CommandHandler::getInstance()
 {
 	if (!instance)
 	{
-		return std::make_shared<CommandHandler>(CommandHandler());
+		instance = std::make_shared<CommandHandler>(CommandHandler());
 	}
 	return instance;
 }
