@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,21 +129,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Area.cpp" />
     <ClCompile Include="CommandHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Room.cpp" />
-    <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="ShipBridge.cpp" />
+    <ClCompile Include="ShipPassageway.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Area.h" />
     <ClInclude Include="CommandHandler.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Printer.h" />
     <ClInclude Include="Room.h" />
-    <ClInclude Include="Ship.h" />
+    <ClInclude Include="ShipBridge.h" />
+    <ClInclude Include="ShipPassageway.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

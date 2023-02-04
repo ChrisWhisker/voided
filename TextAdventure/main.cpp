@@ -1,25 +1,30 @@
 #include "CommandHandler.h"
+#include "PlayerState.h"
 #include "Printer.h"
+#include "ShipBridge.h"
 #include <iostream>
 using std::cout;
 
 int main()
 {
-    Printer printer;
-    printer.printByLine("____    ____  ______    __   _______   _______  _______  \n\\   \\  /   / /  __  \\  |  | |       \\ |   ____||       \\ \n \\   \\/   / |  |  |  | |  | |  .--.  ||  |__   |  .--.  |\n  \\      /  |  |  |  | |  | |  |  |  ||   __|  |  |  |  |\n   \\    /   |  `--'  | |  | |  '--'  ||  |____ |  '--'  |\n    \\__/     \\______/  |__| |_______/ |_______||_______/ \n\n\n");
-    printer.print("You awake with a throbbing headache and a deafening ring in your ears.");
-    printer.print("Opening your eyes, you're alone. The only thing you remember is losing control of your ship and steering towards the closest habitable planet.");
-    printer.print("A sensation of wetness makes itself known on the side of your head. You need to stop the bleeding.");
+    shared_ptr<Printer> printer = Printer::getInstance();
+    shared_ptr<CommandHandler> handler = CommandHandler::getInstance();
+    shared_ptr<PlayerState> player = PlayerState::getInstance();
 
-    //printer.printMainStats();
-    printer.print("\nWhat do you want to do?\n> ");
+    printer->printByLine("____    ____  ______    __   _______   _______  _______  \n\\   \\  /   / /  __  \\  |  | |       \\ |   ____||       \\ \n \\   \\/   / |  |  |  | |  | |  .--.  ||  |__   |  .--.  |\n  \\      /  |  |  |  | |  | |  |  |  ||   __|  |  |  |  |\n   \\    /   |  `--'  | |  | |  '--'  ||  |____ |  '--'  |\n    \\__/     \\______/  |__| |_______/ |_______||_______/ \n\n\n");
+    printer->print("You awake with a throbbing headache and a deafening ring in your ears. Opening your eyes, you're alone. The only thing you remember is losing control of your ship and preparing to crash land on a planet you don't recognize. A sensation of wetness makes itself known on the side of your head. You need to stop the bleeding.");
+    printer->printMainStats();
 
-    CommandHandler handler;
+    ShipBridge bridge;
+    bridge.enter();
+    printer->prompt();
+    
     string command;
-
     while (std::getline(std::cin, command)) {
-        handler.Handle(command);
-        printer.print("What do you want to do?\n> ");
+        handler->handle(command);
+        //player->addHealth(-3); // TODO
+        printer->printMainStats();
+        printer->prompt();
     }
 
     return 0;

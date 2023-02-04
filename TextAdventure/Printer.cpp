@@ -6,21 +6,38 @@ using std::chrono::milliseconds;
 using std::cout;
 using std::this_thread::sleep_for;
 
+shared_ptr<Printer> Printer::instance = nullptr;
+
 Printer::Printer()
 {
 	player = PlayerState::getInstance();
+	srand(time(0));
+}
+
+shared_ptr<Printer> Printer::getInstance()
+{
+	if (!instance)
+	{
+		return std::make_shared<Printer>(Printer());
+	}
+	return instance;
+}
+
+void Printer::prompt()
+{
+	//cout << "\nWhat do you want to do?\n> ";
+	cout << std::endl << prompts[rand() % 10] << std::endl << "> ";
 }
 
 void Printer::print(string str)
 {
-	cout << std::endl;
 	if (debugMode)
 	{
 		cout << str;
 		return;
 	}
 	
-	typeText(str, 3, 30, 200);
+	typeText(str, 1, 30, 200);
 	cout << std::endl;
 }
 
@@ -32,7 +49,7 @@ void Printer::printByLine(string str)
 		return;
 	}
 	
-	typeText(str, 0, 0, 300);
+	typeText(str, 1, 0, 500);
 }
 
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)

@@ -13,6 +13,8 @@ public:
 	string combatStats();
 	string allStats();
 
+	int addHealth(int healthToAdd);
+
 private:
 	PlayerState();
 	static shared_ptr<PlayerState> instance;

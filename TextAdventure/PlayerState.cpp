@@ -1,13 +1,13 @@
 #include "PlayerState.h"
+#include <algorithm>
 #include <iostream>
-using std::make_shared;
 using std::to_string;
 
 shared_ptr<PlayerState> PlayerState::instance = nullptr;
 
 PlayerState::PlayerState()
 {
-	health = 100;
+	health = 62;
 	oxygen = 100;
 	resistance = 5;
 	attackStrength = 5;
@@ -19,7 +19,7 @@ shared_ptr<PlayerState> PlayerState::getInstance()
 {
 	if (!instance)
 	{
-		return make_shared<PlayerState>(PlayerState());
+		return std::make_shared<PlayerState>(PlayerState());
 	}
 	return instance;
 }
@@ -48,3 +48,13 @@ string PlayerState::allStats()
 		+ "Speed: " + to_string(speed) + SPACE
 		+ "Level: " + to_string(level);
 }
+
+// TODO
+
+//int PlayerState::addHealth(int healthToAdd)
+//{
+//	healthToAdd = std::clamp(healthToAdd, 0 - health, 100 - health);
+//	health += healthToAdd;
+//	std::cout << "\n\n" << healthToAdd << "\n\n";
+//	return healthToAdd;
+//}
