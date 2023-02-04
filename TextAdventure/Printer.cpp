@@ -4,6 +4,7 @@
 #include <thread>
 using std::chrono::milliseconds;
 using std::cout;
+using std::endl;
 using std::this_thread::sleep_for;
 
 shared_ptr<Printer> Printer::instance = nullptr;
@@ -25,8 +26,7 @@ Printer::Printer()
 
 void Printer::prompt()
 {
-	//cout << "\nWhat do you want to do?\n> ";
-	cout << std::endl << prompts[rand() % 10] << std::endl << "> ";
+	cout << endl << endl << prompts[rand() % 10] << endl << "> ";
 }
 
 void Printer::print(string str)
@@ -38,7 +38,7 @@ void Printer::print(string str)
 	}
 	
 	typeText(str, 1, 30, 200);
-	cout << std::endl;
+	cout << endl;
 }
 
 void Printer::printByLine(string str)
@@ -71,17 +71,15 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 
 void Printer::printMainStats()
 {
-	print(player->mainStats());
+	cout << DIVIDER << player->mainStats();
 }
 
 void Printer::printCombatStats()
 {
-	print(player->combatStats());
+	cout << DIVIDER << player->combatStats();
 }
 
 void Printer::printAllStats()
 {
-	print(player->allStats());
+	cout << DIVIDER << player->allStats();
 }
-
-

@@ -18,6 +18,8 @@ public:
 	
 	bool debugMode = true;
 
+	const string DIVIDER = "\n==========\n";
+
 private:
 	Printer();
 	static shared_ptr<Printer> instance;
