@@ -17,8 +17,9 @@ private:
 	CommandHandler();
 
 	shared_ptr<Printer> printer;
+	shared_ptr<PlayerState> player;
 
-	void execute(string command);
+	bool execute(string command);
 	
 	const string HELP = "help";
 	const string LOOK_AT = "look at";

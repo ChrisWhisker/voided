@@ -1,4 +1,5 @@
 #include "CommandHandler.h"
+#include "PlayerState.h"
 #include <iostream>
 using std::cout;
 
@@ -15,20 +16,28 @@ shared_ptr<CommandHandler> CommandHandler::getInstance()
 
 CommandHandler::CommandHandler()
 {
+	clock = Clock::getInstance();
 	printer = Printer::getInstance();
+	player = PlayerState::getInstance();
 }
 
 void CommandHandler::handle(string command)
 {
-	// trim leading and trailing white space
-	// convert entire string to lowercase
-	execute(command);
+	// TODO trim leading and trailing white space
+	// TODO convert entire string to lowercase
+	if (execute(command))
+	{
+		player->addHealth(-3);
+	}
 }
 
-void CommandHandler::execute(string command)
+bool CommandHandler::execute(string command)
 {
+	bool executed = true;
+
 	if (command == HELP)
 	{
+		
 		cout << "\n";
 		for (auto p : commands)
 		{
@@ -51,5 +60,9 @@ void CommandHandler::execute(string command)
 	else
 	{
 		cout << ("That command is not recognized.\n");
+		executed = false;
 	}
+
+
+	return executed;
 }
