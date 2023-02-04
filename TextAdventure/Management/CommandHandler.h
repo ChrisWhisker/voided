@@ -6,9 +6,6 @@
 #include <map>
 #include <memory>
 #include <string>
-#include <iostream>  // TODO remove
-using std::cout; // TODO remove
-using std::endl; // TODO remove
 using std::shared_ptr;
 using std::string;
 
@@ -20,7 +17,7 @@ public:
 
 	bool testFunc(string str)
 	{
-		cout << endl << endl << "THE TEST FUNCTION HAS BEEN CALLED!" << endl << endl;
+		printer->debug("THE TEST FUNCTION HAS BEEN CALLED!");
 		return true;
 	}
 

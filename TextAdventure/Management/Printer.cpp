@@ -1,5 +1,6 @@
 #include "Printer.h"
 #include <chrono>
+#include <iomanip>
 #include <iostream>
 #include <thread>
 using std::chrono::milliseconds;
@@ -49,7 +50,7 @@ void Printer::printByLine(string str)
 		return;
 	}
 	
-	typeText(str, 1, 0, 500);
+	typeText(str, 1, 0, 200);
 }
 
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)
@@ -61,12 +62,15 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 		{
 			sleep_for(milliseconds(msAfterWord));
 		}
+		else if (c == '\n')
+		{
+			sleep_for(milliseconds(msAfterLine));
+		}
 		else
 		{
 			sleep_for(milliseconds(msAfterChar));
 		}
 	}
-	sleep_for(milliseconds(msAfterLine));
 }
 
 void Printer::printMainStats()
@@ -82,4 +86,12 @@ void Printer::printCombatStats()
 void Printer::printAllStats()
 {
 	cout << DIVIDER << player->allStats();
+}
+
+void Printer::debug(string str)
+{
+	if (debugMode)
+	{
+		cout << endl << std::setw(20) << "\033[1;7;36m" << str <<"\033[0m\n";
+	}
 }

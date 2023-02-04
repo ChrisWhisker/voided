@@ -1,7 +1,4 @@
 #include "Clock.h"
-#include <iostream>  // TODO remove
-using std::cout; // TODO remove remove
-using std::endl; // remove
 
 shared_ptr<Clock> Clock::instance = nullptr;
 
@@ -16,6 +13,7 @@ shared_ptr<Clock> Clock::getInstance()
 
 Clock::Clock()
 {
+	printer = Printer::getInstance();
 	gameTime = 0;
 }
 
@@ -23,11 +21,12 @@ bool Clock::tick()
 {
 	bool success = true;
 	gameTime++;
-	//cout << endl << endl << "gameTime is: " << gameTime << endl << endl;
+	printer->debug("gameTime is: " + gameTime);
 
 	for (auto timer : timers)
 	{
-		//cout << endl << endl << "time of detonation: " << timer.second << endl << endl;
+		printer->debug("Timer will call function at gameTime of: " + timer.second);
+
 		if (gameTime >= timer.second)
 		{
 			if (timer.first("")) // call function

@@ -16,7 +16,8 @@ public:
 	void printCombatStats();
 	void printAllStats();
 	
-	bool debugMode = true;
+	bool debugMode = false;
+	void debug(string str);
 
 	const string DIVIDER = "\n==========\n";
 

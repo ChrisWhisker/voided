@@ -1,4 +1,5 @@
 #pragma once
+#include "Printer.h"
 #include <functional>
 #include <map>
 #include <memory>
@@ -21,6 +22,8 @@ public:
 private:
 	static shared_ptr<Clock> instance;
 	Clock();
+
+	shared_ptr<Printer> printer;
 
 	int gameTime;
 
