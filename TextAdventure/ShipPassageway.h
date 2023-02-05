@@ -6,4 +6,3 @@ public:
 	ShipPassageway();
 	void enter() override;
 };
-
