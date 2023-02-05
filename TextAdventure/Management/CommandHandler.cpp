@@ -28,7 +28,7 @@ bool CommandHandler::execute(string command)
 	{
 		shouldTick = false;
 		printer->newLine();
-		
+
 		for (auto p : commands)
 		{
 			printer->print(p.first + " : " + p.second);
@@ -37,7 +37,6 @@ bool CommandHandler::execute(string command)
 	// look at object
 	//else if (command.rfind(LOOK_AT, 0) > -1)
 	//{
-
 	//}
 	else if (command == STATS)
 	{

@@ -13,7 +13,7 @@ class Printer
 public:
 	Printer(shared_ptr<PlayerState> plr);
 	void setPlayerState(shared_ptr<PlayerState> plr);
-	
+
 	void prompt();
 	void type(string str);
 	void typeByLine(string str);
@@ -40,7 +40,7 @@ private:
 		"...and what are you gonna do about it?", "What do you want to do?", "What now?",
 		"What are you doing now?", "Your next move?"
 	};
-	
+
 	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine);
 	void printStats(string stats);
 	void setTextColor(Color color);

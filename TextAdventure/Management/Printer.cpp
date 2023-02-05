@@ -32,7 +32,7 @@ void Printer::type(string str)
 		cout << str;
 		return;
 	}
-	
+
 	typeText(str, 1, 30, 200);
 	cout << endl;
 }
@@ -51,7 +51,7 @@ void Printer::typeByLine(string str)
 		cout << str;
 		return;
 	}
-	
+
 	typeText(str, 1, 0, 200);
 	cout << endl;
 }
@@ -172,6 +172,6 @@ void Printer::debug(string str)
 {
 	if (debugMode)
 	{
-		cout << endl << std::setw(20) << "\033[1;7;36m" << str <<"\033[0m\n";
+		cout << endl << std::setw(20) << "\033[1;7;36m" << str << "\033[0m\n";
 	}
 }
