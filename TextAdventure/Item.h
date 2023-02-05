@@ -1,4 +1,8 @@
 #pragma once
-class Item
+#include "GameObject.h"
+
+class Item : public GameObject
 {
+public:
+private:
 };
