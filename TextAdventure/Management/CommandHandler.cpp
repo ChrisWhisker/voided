@@ -15,7 +15,7 @@ void CommandHandler::handle(string command)
 
 bool CommandHandler::testFunc(string str)
 {
-	printer->debug("THE TEST FUNCTION HAS BEEN CALLED!");
+	printer->debug(DebugType::log, "THE TEST FUNCTION HAS BEEN CALLED!");
 	return true;
 }
 
@@ -31,7 +31,7 @@ bool CommandHandler::execute(string command)
 
 		for (auto p : commands)
 		{
-			printer->print(p.first + " : " + p.second);
+			printer->print(p.first + "\t\t" + p.second); // TODO use setw(20) to align better
 		}
 	}
 	// look at object

@@ -19,7 +19,7 @@ int main()
 		" \\   \\/   / |  |  |  | |  | |  .--.  ||  |__   |  .--.  |\n"
 		"  \\      /  |  |  |  | |  | |  |  |  ||   __|  |  |  |  |\n"
 		"   \\    /   |  `--'  | |  | |  '--'  ||  |____ |  '--'  |\n"
-		"    \\__/     \\______/  |__| |_______/ |_______||_______/ \n", Color::red);
+		"    \\__/     \\______/  |__| |_______/ |_______||_______/ \n", TextColor::red);
 	printer->type("You awake with a throbbing headache and a deafening ring in your ears. Opening your eyes, "
 		"you're alone. The only thing you remember is losing control of your ship and preparing to crash land on a "
 		"planet you don't recognize. A sensation of wetness makes itself known on the side of your head. You need to "

@@ -11,12 +11,12 @@ bool Clock::tick()
 {
 	bool success = true;
 	gameTime++;
-	printer->debug("gameTime is: " + gameTime);
+	printer->debug(DebugType::log, "gameTime is: " + std::to_string(gameTime));
 	player->addHealth(-3);
 
 	for (auto timer : timers)
 	{
-		printer->debug("Timer will call function at gameTime of: " + timer.second);
+		printer->debug(DebugType::log, "Timer will call function at gameTime of: " + std::to_string(timer.second));
 
 		if (gameTime >= timer.second)
 		{
@@ -30,6 +30,7 @@ bool Clock::tick()
 			}
 		}
 	}
+	printer->debug(DebugType::log, "success?: " + std::to_string(success));
 	return success;
 }
 

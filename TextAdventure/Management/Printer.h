@@ -6,7 +6,8 @@ using std::shared_ptr;
 using std::string;
 
 class PlayerState;
-enum class Color { red, yellow, green, cyan, blue, magenta, black };
+enum class TextColor { black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, white = 37 };
+enum class DebugType { log = 47, warning = 43, error = 41 };
 
 class Printer
 {
@@ -15,13 +16,13 @@ public:
 	void setPlayerState(shared_ptr<PlayerState> plr);
 
 	void prompt();
-	void type(string str);
-	void typeByLine(string str);
 	void print(string str);
-	void type(string str, Color color);
-	void typeByLine(string str, Color color);
-	void print(string str, Color color);
+	void print(string str, TextColor color);
 	void newLine();
+	void type(string str);
+	void type(string str, TextColor color);
+	void typeByLine(string str);
+	void typeByLine(string str, TextColor color);
 
 	void printMainStats();
 	void printCombatStats();
@@ -29,8 +30,9 @@ public:
 
 	void resetColor();
 
-	bool debugMode = false;
-	void debug(string str);
+	bool debugMode = true;
+	void debug(DebugType type, string str);
+	void debug(DebugType type, string message, int intVal);
 
 private:
 	shared_ptr<PlayerState> player;
@@ -43,5 +45,5 @@ private:
 
 	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine);
 	void printStats(string stats);
-	void setTextColor(Color color);
+	void setTextColor(TextColor color);
 };
