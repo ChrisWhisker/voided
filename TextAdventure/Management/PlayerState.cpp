@@ -1,20 +1,20 @@
 #include "PlayerState.h"
+#include "Printer.h"
 #include <algorithm>
 #include <iostream>
 using std::to_string;
 
-shared_ptr<PlayerState> PlayerState::instance = nullptr;
+//PlayerState::PlayerState(Printer* prtr) : printer(prtr)
+//{
+//	health = 62;
+//	oxygen = 100;
+//	resistance = 5;
+//	attackStrength = 5;
+//	speed = 5;
+//	level = 1;
+//}
 
-shared_ptr<PlayerState> PlayerState::getInstance()
-{
-	if (!instance)
-	{
-		instance = std::make_shared<PlayerState>(PlayerState());
-	}
-	return instance;
-}
-
-PlayerState::PlayerState()
+PlayerState::PlayerState(Printer* prtr) : printer(prtr)
 {
 	health = 62;
 	oxygen = 100;
@@ -53,5 +53,12 @@ int PlayerState::addHealth(int healthToAdd)
 {
 	healthToAdd = std::clamp(healthToAdd, 0 - health, 100 - health);
 	health += healthToAdd;
+
+	if (health <= 0)
+	{
+		printer->type("You died.");
+		exit(0);
+	}
+
 	return healthToAdd;
 }

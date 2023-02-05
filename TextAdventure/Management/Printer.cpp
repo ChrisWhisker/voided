@@ -1,4 +1,5 @@
 #include "Printer.h"
+#include "PlayerState.h"
 #include <chrono>
 #include <iomanip>
 #include <iostream>
@@ -8,29 +9,23 @@ using std::cout;
 using std::endl;
 using std::this_thread::sleep_for;
 
-shared_ptr<Printer> Printer::instance = nullptr;
-
-shared_ptr<Printer> Printer::getInstance()
+Printer::Printer(PlayerState* plr) : player(plr)
 {
-	if (!instance)
-	{
-		instance = std::make_shared<Printer>(Printer());
-	}
-	return instance;
+	srand(time(0));
 }
 
-Printer::Printer()
+void Printer::setPlayerState(PlayerState* plr)
 {
-	player = PlayerState::getInstance();
-	srand(time(0));
+	player = plr;
 }
 
 void Printer::prompt()
 {
-	cout << endl << endl << prompts[rand() % 10] << endl << "> ";
+	cout << endl << prompts[rand() % 10] << endl << "\033[92m" << "> ";
+	// cout << endl << std::setw(20) << "\033[1;7;36m" << str <<"\033[0m\n";
 }
 
-void Printer::print(string str)
+void Printer::type(string str)
 {
 	if (debugMode)
 	{
@@ -42,7 +37,7 @@ void Printer::print(string str)
 	cout << endl;
 }
 
-void Printer::printByLine(string str)
+void Printer::typeByLine(string str)
 {
 	if (debugMode)
 	{
@@ -51,6 +46,12 @@ void Printer::printByLine(string str)
 	}
 	
 	typeText(str, 1, 0, 200);
+	cout << endl;
+}
+
+void Printer::print(string str)
+{
+	cout << str << endl;
 }
 
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)
@@ -71,21 +72,32 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 			sleep_for(milliseconds(msAfterChar));
 		}
 	}
+	cout << endl;
 }
 
 void Printer::printMainStats()
 {
-	cout << DIVIDER << player->mainStats();
+	printStats(player->mainStats());
 }
 
 void Printer::printCombatStats()
 {
-	cout << DIVIDER << player->combatStats();
+	printStats(player->combatStats());
 }
 
 void Printer::printAllStats()
 {
-	cout << DIVIDER << player->allStats();
+	printStats(player->allStats());
+}
+
+void Printer::resetColor()
+{
+	cout << "\033[0m";
+}
+
+void Printer::printStats(string stats)
+{
+	cout << "\n==========\n" << stats << endl;
 }
 
 void Printer::debug(string str)

@@ -1,33 +1,22 @@
 #include "CommandHandler.h"
-#include <iostream>
-using std::cout;
+#include "Clock.h"
+#include "PlayerState.h"
+#include "Printer.h"
 
-shared_ptr<CommandHandler> CommandHandler::instance = nullptr;
-
-shared_ptr<CommandHandler> CommandHandler::getInstance()
-{
-	if (!instance)
-	{
-		instance = std::make_shared<CommandHandler>(CommandHandler());
-	}
-	return instance;
-}
-
-CommandHandler::CommandHandler()
-{
-	clock = Clock::getInstance();
-	printer = Printer::getInstance();
-	player = PlayerState::getInstance();
-}
+CommandHandler::CommandHandler(Clock* clk, Printer* prtr) : clock(clk), printer(prtr) { }
 
 void CommandHandler::handle(string command)
 {
 	// TODO trim leading and trailing white space
 	// TODO convert entire string to lowercase
-	if (execute(command))
-	{
-		player->addHealth(-3);
-	}
+	printer->resetColor();
+	execute(command);
+}
+
+bool CommandHandler::testFunc(string str)
+{
+	printer->debug("THE TEST FUNCTION HAS BEEN CALLED!");
+	return true;
 }
 
 bool CommandHandler::execute(string command)
@@ -39,10 +28,9 @@ bool CommandHandler::execute(string command)
 	{
 		shouldTick = false;
 		
-		cout << "\n";
 		for (auto p : commands)
 		{
-			cout << p.first << " : " << p.second << std::endl;
+			printer->print(p.first + " : " + p.second);
 		}
 	}
 	// look at object
@@ -57,7 +45,7 @@ bool CommandHandler::execute(string command)
 	else if (command == INVENTORY)
 	{
 		shouldTick = false;
-		printer->print("Your inventory is empty... unless you count pocket lint.");
+		printer->type("Your inventory is empty... unless you count pocket lint.");
 	}
 	else if (command == "start timer")
 	{
@@ -70,7 +58,7 @@ bool CommandHandler::execute(string command)
 	}
 	else
 	{
-		cout << ("That command is not recognized.\n");
+		printer->print("That command is not recognized.");
 		executed = false;
 		shouldTick = false;
 	}

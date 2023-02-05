@@ -1,19 +1,9 @@
 #include "Clock.h"
+#include "PlayerState.h"
+#include "Printer.h"
 
-shared_ptr<Clock> Clock::instance = nullptr;
-
-shared_ptr<Clock> Clock::getInstance()
+Clock::Clock(PlayerState* ps, Printer* prtr) : player(ps), printer(prtr)
 {
-	if (!instance)
-	{
-		instance = std::make_shared<Clock>(Clock());
-	}
-	return instance;
-}
-
-Clock::Clock()
-{
-	printer = Printer::getInstance();
 	gameTime = 0;
 }
 
@@ -22,6 +12,7 @@ bool Clock::tick()
 	bool success = true;
 	gameTime++;
 	printer->debug("gameTime is: " + gameTime);
+	player->addHealth(-3);
 
 	for (auto timer : timers)
 	{
@@ -39,7 +30,6 @@ bool Clock::tick()
 			}
 		}
 	}
-
 	return success;
 }
 

@@ -1,13 +1,15 @@
 #pragma once
-#include <memory>
+//#include <memory>
 #include <string>
-using std::shared_ptr;
+//using std::shared_ptr;
 using std::string;
+
+class Printer;
 
 class PlayerState
 {
 public:
-	static shared_ptr<PlayerState> getInstance();
+	PlayerState(Printer* prtr);
 
 	string mainStats();
 	string combatStats();
@@ -16,8 +18,7 @@ public:
 	int addHealth(int healthToAdd);
 
 private:
-	PlayerState();
-	static shared_ptr<PlayerState> instance;
+	Printer* printer;
 
 	string name;
 	int health;

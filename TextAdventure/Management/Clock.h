@@ -1,5 +1,4 @@
 #pragma once
-#include "Printer.h"
 #include <functional>
 #include <map>
 #include <memory>
@@ -10,20 +9,21 @@ using std::shared_ptr;
 using std::string;
 using std::vector;
 
+class PlayerState;
+class Printer;
+
 class Clock
 {
 public:
-	static shared_ptr<Clock> getInstance();
+	Clock(PlayerState* ps, Printer* printer);
 
 	bool tick();
 	int getGameTime();
 	void startTimer(function<bool(string)> func, int length);
 
 private:
-	static shared_ptr<Clock> instance;
-	Clock();
-
-	shared_ptr<Printer> printer;
+	PlayerState* player;
+	Printer* printer;
 
 	int gameTime;
 

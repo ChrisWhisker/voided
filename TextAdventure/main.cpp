@@ -1,36 +1,39 @@
+#include "Management/Clock.h"
 #include "Management/CommandHandler.h"
+#include "Management/PlayerState.h"
 #include "Management/Printer.h"
 #include "ShipBridge.h"
 #include <iostream>
-using std::cout;
 
 int main()
 {
-	shared_ptr<Printer> printer = Printer::getInstance();
-	shared_ptr<CommandHandler> handler = CommandHandler::getInstance();
-	shared_ptr<PlayerState> player = PlayerState::getInstance();
+	Printer printer(nullptr);
+	PlayerState player(&printer);
+	printer.setPlayerState(&player);
+	Clock clock(&player, &printer);
+	CommandHandler handler(&clock, &printer);
 
-	printer->printByLine("____    ____  ______    __   _______   _______  _______  \n"
+	printer.typeByLine("____    ____  ______    __   _______   _______  _______  \n"
 		"\\   \\  /   / /  __  \\  |  | |       \\ |   ____||       \\ \n"
 		" \\   \\/   / |  |  |  | |  | |  .--.  ||  |__   |  .--.  |\n"
 		"  \\      /  |  |  |  | |  | |  |  |  ||   __|  |  |  |  |\n"
 		"   \\    /   |  `--'  | |  | |  '--'  ||  |____ |  '--'  |\n"
 		"    \\__/     \\______/  |__| |_______/ |_______||_______/ \n\n\n");
-	printer->print("You awake with a throbbing headache and a deafening ring in your ears. Opening your eyes, "
+	printer.type("You awake with a throbbing headache and a deafening ring in your ears. Opening your eyes, "
 		"you're alone. The only thing you remember is losing control of your ship and preparing to crash land on a "
 		"planet you don't recognize. A sensation of wetness makes itself known on the side of your head. You need to "
 		"stop the bleeding.");
-	printer->printMainStats();
+	printer.printMainStats();
 
 	ShipBridge bridge;
 	bridge.enter();
-	printer->prompt();
+	printer.prompt();
 
 	string command;
 	while (std::getline(std::cin, command)) {
-		handler->handle(command);
-		printer->printMainStats();
-		printer->prompt();
+		handler.handle(command);
+		printer.printMainStats();
+		printer.prompt();
 	}
 
 	return 0;

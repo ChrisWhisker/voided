@@ -1,33 +1,25 @@
 #pragma once
-#include "Clock.h"
-#include "PlayerState.h"
-#include "Printer.h"
 #include <functional>
 #include <map>
-#include <memory>
+//#include <memory>
 #include <string>
-using std::shared_ptr;
+//using std::shared_ptr;
 using std::string;
+
+class Clock;
+class Printer;
 
 class CommandHandler
 {
 public:
-	static shared_ptr<CommandHandler> getInstance();
-	void handle(string command);
+	CommandHandler(Clock* clock, Printer* printer);
 
-	bool testFunc(string str)
-	{
-		printer->debug("THE TEST FUNCTION HAS BEEN CALLED!");
-		return true;
-	}
+	void handle(string command);
+	bool testFunc(string str);
 
 private:
-	static shared_ptr<CommandHandler> instance;
-	CommandHandler();
-
-	shared_ptr<Clock> clock;
-	shared_ptr<Printer> printer;
-	shared_ptr<PlayerState> player;
+	Clock* clock;
+	Printer* printer;
 
 	bool execute(string command);
 
