@@ -6,6 +6,7 @@
 using std::string;
 
 class PlayerState;
+enum class Color { red, yellow, green, cyan, blue, magenta, black };
 
 class Printer
 {
@@ -17,11 +18,15 @@ public:
 	void type(string str);
 	void typeByLine(string str);
 	void print(string str);
+	void type(string str, Color color);
+	void typeByLine(string str, Color color);
+	void print(string str, Color color);
 	void printMainStats();
 	void printCombatStats();
 	void printAllStats();
+
 	void resetColor();
-	
+
 	bool debugMode = false;
 	void debug(string str);
 
@@ -36,4 +41,5 @@ private:
 	
 	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine);
 	void printStats(string stats);
+	void setTextColor(Color color);
 };

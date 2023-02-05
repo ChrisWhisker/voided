@@ -37,6 +37,13 @@ void Printer::type(string str)
 	cout << endl;
 }
 
+void Printer::type(string str, Color color)
+{
+	setTextColor(color);
+	type(str);
+	resetColor();
+}
+
 void Printer::typeByLine(string str)
 {
 	if (debugMode)
@@ -49,9 +56,23 @@ void Printer::typeByLine(string str)
 	cout << endl;
 }
 
+void Printer::typeByLine(string str, Color color)
+{
+	setTextColor(color);
+	typeByLine(str);
+	resetColor();
+}
+
 void Printer::print(string str)
 {
 	cout << str << endl;
+}
+
+void Printer::print(string str, Color color)
+{
+	setTextColor(color);
+	print(str);
+	resetColor();
 }
 
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)
@@ -88,6 +109,36 @@ void Printer::printCombatStats()
 void Printer::printAllStats()
 {
 	printStats(player->allStats());
+}
+
+void Printer::setTextColor(Color color)
+{
+	switch (color)
+	{
+	case Color::red:
+		cout << "\033[31m";
+		return;
+	case Color::yellow:
+		cout << "\033[33m";
+		return;
+	case Color::green:
+		cout << "\033[32m";
+		return;
+	case Color::cyan:
+		cout << "\033[36m";
+		return;
+	case Color::blue:
+		cout << "\033[34m";
+		return;
+	case Color::magenta:
+		cout << "\033[35m";
+		return;
+	case Color::black:
+		cout << "\033[30m";
+		return;
+	}
+	// light variations:
+	// red 91, yellow 93, green 92, cyan 96, blue 94, magenta 95, black 90
 }
 
 void Printer::resetColor()
