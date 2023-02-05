@@ -11,7 +11,7 @@ using std::this_thread::sleep_for;
 
 Printer::Printer(PlayerState* plr) : player(plr)
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 }
 
 void Printer::setPlayerState(PlayerState* plr)
