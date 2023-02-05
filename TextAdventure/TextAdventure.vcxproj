@@ -138,6 +138,7 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="ShipBridge.cpp" />
     <ClCompile Include="ShipPassageway.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="ShipBridge.h" />
     <ClInclude Include="ShipPassageway.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

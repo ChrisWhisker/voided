@@ -1,6 +1,6 @@
 #pragma once
+#include "../Timer.h"
 #include <functional>
-#include <map>
 #include <memory>
 #include <string>
 #include <vector>
@@ -24,17 +24,6 @@ public:
 private:
 	shared_ptr<PlayerState> player;
 	shared_ptr<Printer> printer;
-
 	int gameTime;
-
-	// needed in order to pass functions as parameters
-	struct CompareFunction
-	{
-		bool operator()(const function<bool(string)>& f1, const function<bool(string)>& f2) const
-		{
-			return &f1 < &f2;
-		}
-	};
-
-	std::map<function<bool(string)>, int, CompareFunction> timers;
+	vector<Timer> timers;
 };

@@ -14,15 +14,17 @@ bool Clock::tick()
 	printer->debug(DebugType::log, "gameTime is: " + std::to_string(gameTime));
 	player->addHealth(-3);
 
+	vector<Timer> completedTimers;
+
 	for (auto timer : timers)
 	{
-		printer->debug(DebugType::log, "Timer will call function at gameTime of: " + std::to_string(timer.second));
+		printer->debug(DebugType::log, "Timer will call function at gameTime of: " + std::to_string(timer.getDeadline()));
 
-		if (gameTime >= timer.second)
+		if (gameTime >= timer.getDeadline())
 		{
-			if (timer.first("")) // call function
+			if (timer.callFunction()) // call function
 			{
-				timers.erase(timer.first);
+				completedTimers.push_back(timer);
 			}
 			else
 			{
@@ -30,7 +32,12 @@ bool Clock::tick()
 			}
 		}
 	}
-	printer->debug(DebugType::log, "success?: " + std::to_string(success));
+
+	// remove completed timers
+	for (const auto& completedTimer : completedTimers) {
+		timers.erase(std::remove(timers.begin(), timers.end(), completedTimer), timers.end());
+	}
+
 	return success;
 }
 
@@ -41,5 +48,7 @@ int Clock::getGameTime()
 
 void Clock::startTimer(function<bool(string)> func, int length)
 {
-	timers.insert({ func,  gameTime + length });
+	Timer timer(func, gameTime + length);
+
+	timers.push_back(timer);
 }
