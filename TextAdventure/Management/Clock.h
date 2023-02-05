@@ -15,15 +15,15 @@ class Printer;
 class Clock
 {
 public:
-	Clock(PlayerState* ps, Printer* printer);
+	Clock(shared_ptr<PlayerState> ps, shared_ptr<Printer> printer);
 
 	bool tick();
 	int getGameTime();
 	void startTimer(function<bool(string)> func, int length);
 
 private:
-	PlayerState* player;
-	Printer* printer;
+	shared_ptr<PlayerState> player;
+	shared_ptr<Printer> printer;
 
 	int gameTime;
 

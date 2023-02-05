@@ -3,7 +3,7 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-CommandHandler::CommandHandler(Clock* clk, Printer* prtr) : clock(clk), printer(prtr) { }
+CommandHandler::CommandHandler(shared_ptr<Clock> clk, shared_ptr<Printer> prtr) : clock(clk), printer(prtr) { }
 
 void CommandHandler::handle(string command)
 {
@@ -27,6 +27,7 @@ bool CommandHandler::execute(string command)
 	if (command == HELP)
 	{
 		shouldTick = false;
+		printer->newLine();
 		
 		for (auto p : commands)
 		{

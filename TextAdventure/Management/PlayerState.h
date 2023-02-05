@@ -1,7 +1,7 @@
 #pragma once
-//#include <memory>
+#include <memory>
 #include <string>
-//using std::shared_ptr;
+using std::shared_ptr;
 using std::string;
 
 class Printer;
@@ -9,7 +9,7 @@ class Printer;
 class PlayerState
 {
 public:
-	PlayerState(Printer* prtr);
+	PlayerState(shared_ptr<Printer> prtr);
 
 	string mainStats();
 	string combatStats();
@@ -18,7 +18,7 @@ public:
 	int addHealth(int healthToAdd);
 
 private:
-	Printer* printer;
+	shared_ptr<Printer> printer;
 
 	string name;
 	int health;

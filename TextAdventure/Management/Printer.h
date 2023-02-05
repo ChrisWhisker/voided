@@ -1,8 +1,8 @@
 #pragma once
 #include <array>
-//#include <memory>
+#include <memory>
 #include <string>
-//using std::shared_ptr;
+using std::shared_ptr;
 using std::string;
 
 class PlayerState;
@@ -11,8 +11,8 @@ enum class Color { red, yellow, green, cyan, blue, magenta, black };
 class Printer
 {
 public:
-	Printer(PlayerState* plr);
-	void setPlayerState(PlayerState* plr);
+	Printer(shared_ptr<PlayerState> plr);
+	void setPlayerState(shared_ptr<PlayerState> plr);
 	
 	void prompt();
 	void type(string str);
@@ -21,6 +21,8 @@ public:
 	void type(string str, Color color);
 	void typeByLine(string str, Color color);
 	void print(string str, Color color);
+	void newLine();
+
 	void printMainStats();
 	void printCombatStats();
 	void printAllStats();
@@ -31,7 +33,7 @@ public:
 	void debug(string str);
 
 private:
-	PlayerState* player;
+	shared_ptr<PlayerState> player;
 
 	std::array<string, 10> prompts = { "What would you like to do?", "What's the plan now?",
 		"How do you want to proceed?", "Your next steps?", "What are you doing next?",

@@ -1,9 +1,9 @@
 #pragma once
 #include <functional>
 #include <map>
-//#include <memory>
+#include <memory>
 #include <string>
-//using std::shared_ptr;
+using std::shared_ptr;
 using std::string;
 
 class Clock;
@@ -12,14 +12,14 @@ class Printer;
 class CommandHandler
 {
 public:
-	CommandHandler(Clock* clock, Printer* printer);
+	CommandHandler(shared_ptr<Clock> clock, shared_ptr<Printer> printer);
 
 	void handle(string command);
 	bool testFunc(string str);
 
 private:
-	Clock* clock;
-	Printer* printer;
+	shared_ptr<Clock> clock;
+	shared_ptr<Printer> printer;
 
 	bool execute(string command);
 

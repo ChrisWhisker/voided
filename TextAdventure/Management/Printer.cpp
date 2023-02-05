@@ -9,12 +9,12 @@ using std::cout;
 using std::endl;
 using std::this_thread::sleep_for;
 
-Printer::Printer(PlayerState* plr) : player(plr)
+Printer::Printer(shared_ptr<PlayerState> plr) : player(plr)
 {
 	srand((unsigned int)time(0));
 }
 
-void Printer::setPlayerState(PlayerState* plr)
+void Printer::setPlayerState(shared_ptr<PlayerState> plr)
 {
 	player = plr;
 }
@@ -75,6 +75,11 @@ void Printer::print(string str, Color color)
 	resetColor();
 }
 
+void Printer::newLine()
+{
+	print("");
+}
+
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine)
 {
 	for (char c : str)
@@ -98,16 +103,28 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 
 void Printer::printMainStats()
 {
+	if (!player)
+	{
+		debug("PlayerState is not set on Printer.");
+	}
 	printStats(player->mainStats());
 }
 
 void Printer::printCombatStats()
 {
+	if (!player)
+	{
+		debug("PlayerState is not set on Printer.");
+	}
 	printStats(player->combatStats());
 }
 
 void Printer::printAllStats()
 {
+	if (!player)
+	{
+		debug("PlayerState is not set on Printer.");
+	}
 	printStats(player->allStats());
 }
 
