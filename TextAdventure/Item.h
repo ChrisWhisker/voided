@@ -4,5 +4,7 @@
 class Item : public GameObject
 {
 public:
-private:
+	string pickUp();
+	string drop();
+	string throwAt(string target);
 };
