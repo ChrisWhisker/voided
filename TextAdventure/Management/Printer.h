@@ -30,7 +30,7 @@ public:
 
 	void resetColor();
 
-	bool debugMode = true;
+	bool debugMode = false; // TODO
 	void debug(DebugType type, string str);
 	void debug(DebugType type, string message, int intVal);
 

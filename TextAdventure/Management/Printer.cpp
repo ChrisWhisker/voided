@@ -170,7 +170,7 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 
 void Printer::printStats(string stats)
 {
-	cout << "\n==========\n" << stats << endl;
+	cout << "==========\n" << stats << endl;
 }
 
 void Printer::setTextColor(TextColor color)

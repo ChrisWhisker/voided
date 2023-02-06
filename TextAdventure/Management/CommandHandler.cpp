@@ -29,10 +29,11 @@ bool CommandHandler::execute(string command)
 		shouldTick = false;
 		printer->newLine();
 
-		for (auto p : commands)
+		for (auto command : commands)
 		{
-			printer->print(p.first + "\t\t" + p.second); // TODO use setw(20) to align better
+			printer->print(command.names[0] + "\t\t" + command.helpText); // TODO use setw(20) to align better
 		}
+		printer->newLine();
 	}
 	// look at object
 	//else if (command.rfind(LOOK_AT, 0) > -1)
@@ -55,6 +56,7 @@ bool CommandHandler::execute(string command)
 	else if (command == WAIT)
 	{
 		// waiting
+		printer->type("Time passes...");
 	}
 	else
 	{
