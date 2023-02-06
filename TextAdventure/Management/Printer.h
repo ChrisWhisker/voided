@@ -6,7 +6,10 @@ using std::shared_ptr;
 using std::string;
 
 class PlayerState;
-enum class TextColor { black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, white = 37 };
+enum class TextColor {
+	black = 30, red = 31, green = 32, yellow = 33,
+	blue = 34, magenta = 35, cyan = 36, white = 37
+};
 enum class DebugType { log = 47, warning = 43, error = 41 };
 
 class Printer {

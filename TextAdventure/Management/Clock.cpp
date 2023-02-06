@@ -15,7 +15,8 @@ bool Clock::tick() {
 	vector<Timer> completedTimers;
 
 	for (auto timer : timers) {
-		printer->debug(DebugType::log, "Timer will call function at gameTime of: " + std::to_string(timer.getDeadline()));
+		printer->debug(DebugType::log, "Timer will call function at gameTime of: "
+			+ std::to_string(timer.getDeadline()));
 
 		if (gameTime >= timer.getDeadline()) {
 			if (timer.callFunction()) // call function
@@ -30,7 +31,8 @@ bool Clock::tick() {
 
 	// remove completed timers
 	for (const auto& completedTimer : completedTimers) {
-		timers.erase(std::remove(timers.begin(), timers.end(), completedTimer), timers.end());
+		timers.erase(std::remove(timers.begin(), timers.end(), completedTimer),
+			timers.end());
 	}
 
 	return success;
