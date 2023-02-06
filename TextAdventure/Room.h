@@ -5,8 +5,7 @@
 using std::string;
 using std::vector;
 
-class Room
-{
+class Room {
 public:
 	virtual void enter() = 0;
 	string getName();

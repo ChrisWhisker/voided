@@ -6,8 +6,7 @@
 #include <iostream>
 using std::make_shared;
 
-int main()
-{
+int main() {
 	auto printer = make_shared<Printer>(nullptr);
 	auto player = make_shared<PlayerState>(printer);
 	printer->setPlayerState(player);

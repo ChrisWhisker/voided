@@ -3,35 +3,28 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-CommandHandler::CommandHandler(shared_ptr<Clock> clk, shared_ptr<Printer> prtr) : clock(clk), printer(prtr) { }
+CommandHandler::CommandHandler(shared_ptr<Clock> clk, shared_ptr<Printer> prtr) : clock(clk), printer(prtr) {}
 
-void CommandHandler::handle(string command)
-{
-	// TODO trim leading and trailing white space
-	// TODO convert entire string to lowercase
+void CommandHandler::handle(string command) {
 	printer->resetColor();
 	execute(command);
 }
 
-bool CommandHandler::testFunc(string str)
-{
+bool CommandHandler::testFunc(string str) {
 	printer->debug(DebugType::log, "Test function called with argument of: " + str);
 	return true;
 }
 
-bool CommandHandler::execute(string command)
-{
+bool CommandHandler::execute(string command) {
 	bool executed = true;
 	bool shouldTick = true;
 
-	if (command == HELP)
-	{
+	if (command == HELP) {
 		shouldTick = false;
 		printer->newLine();
 
-		for (auto command : commands)
-		{
-			printer->print(command.names[0] + "\t\t" + command.helpText); // TODO use setw(20) to align better
+		for (auto command : commands) {
+			printer->print(command.names[0] + "\t\t" + command.helpText);
 		}
 		printer->newLine();
 	}
@@ -39,34 +32,28 @@ bool CommandHandler::execute(string command)
 	//else if (command.rfind(LOOK_AT, 0) > -1)
 	//{
 	//}
-	else if (command == STATS)
-	{
+	else if (command == STATS) {
 		shouldTick = false;
 	}
-	else if (command == INVENTORY)
-	{
+	else if (command == INVENTORY) {
 		shouldTick = false;
 		printer->type("Your inventory is empty... unless you count pocket lint.");
 	}
-	else if (command == "start timer")
-	{
+	else if (command == "start timer") {
 		clock->startTimer(std::bind(&CommandHandler::testFunc, this, std::placeholders::_1), "my test string", 3);
 		shouldTick = false;
 	}
-	else if (command == WAIT)
-	{
+	else if (command == WAIT) {
 		// waiting
 		printer->type("Time passes...");
 	}
-	else
-	{
+	else {
 		printer->print("That command is not recognized.");
 		executed = false;
 		shouldTick = false;
 	}
 
-	if (shouldTick)
-	{
+	if (shouldTick) {
 		clock->tick();
 	}
 

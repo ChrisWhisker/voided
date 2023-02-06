@@ -9,8 +9,7 @@ class PlayerState;
 enum class TextColor { black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, white = 37 };
 enum class DebugType { log = 47, warning = 43, error = 41 };
 
-class Printer
-{
+class Printer {
 public:
 	Printer(shared_ptr<PlayerState> plr);
 	void setPlayerState(shared_ptr<PlayerState> plr);
@@ -30,7 +29,7 @@ public:
 
 	void resetColor();
 
-	bool debugMode = false; // TODO
+	bool debugMode = false;
 	void debug(DebugType type, string str);
 	void debug(DebugType type, string message, int intVal);
 

@@ -1,6 +1,5 @@
 #include "Room.h"
 
-string Room::getName()
-{
+string Room::getName() {
 	return name;
 }

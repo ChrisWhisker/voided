@@ -4,8 +4,7 @@
 #include <iostream>
 using std::to_string;
 
-PlayerState::PlayerState(shared_ptr<Printer> prtr) : printer(prtr)
-{
+PlayerState::PlayerState(shared_ptr<Printer> prtr) : printer(prtr) {
 	health = 62;
 	oxygen = 100;
 	resistance = 5;
@@ -14,23 +13,20 @@ PlayerState::PlayerState(shared_ptr<Printer> prtr) : printer(prtr)
 	level = 1;
 }
 
-string PlayerState::mainStats()
-{
+string PlayerState::mainStats() {
 	return "Health: " + to_string(health) + SPACE
 		+ "Oxygen Level: " + to_string(oxygen) + SPACE
 		+ "Player Level: " + to_string(level);
 }
 
-string PlayerState::combatStats()
-{
+string PlayerState::combatStats() {
 	return "Health: " + to_string(health) + SPACE
 		+ "Damage Resistance: " + to_string(oxygen) + SPACE
 		+ "Attack Strength: " + to_string(oxygen) + SPACE
 		+ "Speed: " + to_string(speed) + SPACE;
 }
 
-string PlayerState::allStats()
-{
+string PlayerState::allStats() {
 	return "Health: " + to_string(health) + SPACE
 		+ "Oxygen Level: " + to_string(oxygen) + SPACE
 		+ "Damage Resistance: " + to_string(oxygen) + SPACE
@@ -39,13 +35,11 @@ string PlayerState::allStats()
 		+ "Level: " + to_string(level);
 }
 
-int PlayerState::addHealth(int healthToAdd)
-{
+int PlayerState::addHealth(int healthToAdd) {
 	healthToAdd = std::clamp(healthToAdd, 0 - health, 100 - health);
 	health += healthToAdd;
 
-	if (health <= 0)
-	{
+	if (health <= 0) {
 		printer->type("You died.");
 		exit(0);
 	}

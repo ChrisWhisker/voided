@@ -12,8 +12,7 @@ using std::vector;
 class PlayerState;
 class Printer;
 
-class Clock
-{
+class Clock {
 public:
 	Clock(shared_ptr<PlayerState> ps, shared_ptr<Printer> printer);
 

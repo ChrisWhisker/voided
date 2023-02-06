@@ -11,8 +11,7 @@ using std::vector;
 class Clock;
 class Printer;
 
-class CommandHandler
-{
+class CommandHandler {
 public:
 	CommandHandler(shared_ptr<Clock> clock, shared_ptr<Printer> printer);
 

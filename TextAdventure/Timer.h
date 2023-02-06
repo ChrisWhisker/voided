@@ -4,8 +4,7 @@
 using std::function;
 using std::string;
 
-class Timer
-{
+class Timer {
 public:
 	Timer(function<bool(string)> func, string arg1, int ddln);
 	function<bool(string)> getFunction();
@@ -18,8 +17,7 @@ private:
 	function<bool(string)> funcToCall;
 	int deadline;
 
-	bool areFunctionsEqual(const function<bool(string)>& f1, const function<bool(string)>& f2)
-	{
+	bool areFunctionsEqual(const function<bool(string)>& f1, const function<bool(string)>& f2) {
 		return f1.target_type() == f2.target_type();
 	}
 };

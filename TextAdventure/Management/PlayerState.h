@@ -6,8 +6,7 @@ using std::string;
 
 class Printer;
 
-class PlayerState
-{
+class PlayerState {
 public:
 	PlayerState(shared_ptr<Printer> prtr);
 
