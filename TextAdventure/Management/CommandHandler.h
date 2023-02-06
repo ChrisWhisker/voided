@@ -1,6 +1,5 @@
 #pragma once
 #include <functional>
-//#include <array>
 #include <memory>
 #include <string>
 #include <vector>
@@ -18,12 +17,6 @@ public:
 	void handle(string command);
 	bool testFunc(string str);
 
-	struct Command {
-		Command(vector<string> n, string h) : names(n), helpText(h) {}
-		vector<string> names;
-		string helpText;
-	};
-
 private:
 	shared_ptr<Clock> clock;
 	shared_ptr<Printer> printer;
@@ -36,10 +29,16 @@ private:
 	const string LOOK_AT = "look at";
 	const string RUN = "run away";
 	const string WAIT = "wait";
-	// Meta-game commands
+	// Metagame commands
 	const string INVENTORY = "inventory";
 	const string STATS = "stats";
 	const string HELP = "help";
+
+	struct Command {
+		Command(vector<string> n, string h) : names(n), helpText(h) {}
+		vector<string> names;
+		string helpText;
+	};
 
 	const vector<Command> commands = {
 		// In-world actions
@@ -48,7 +47,7 @@ private:
 		Command({LOOK_AT, "inspect"}, "Look at an object or location"),
 		Command({RUN}, "Run away from a source of danger"),
 		Command({WAIT}, "Just stand there"),
-		// Meta-game commands
+		// Metagame commands
 		Command({INVENTORY}, "View your inventory"),
 		Command({STATS}, "View your stats"),
 		Command({HELP}, "Repeat this list of commands"),

@@ -15,6 +15,6 @@ protected:
 	string intro; // printed on entry
 	string details; // printed after looking around
 	string extraDetails; // chance to print after looking around (with hints)
-	vector<Item> objects; // interactable object
+	vector<GameObject> objects; // interactable object
 	vector<Room> connectedRooms; // rooms you can go to
 };
