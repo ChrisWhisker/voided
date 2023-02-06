@@ -2,7 +2,7 @@
 #include "Management/Printer.h"
 #include <iostream>
 
-Timer::Timer(function<bool(string)> func, int ddln) : funcToCall(func), deadline(ddln) {}
+Timer::Timer(function<bool(string)> func, string arg1, int ddln) : funcToCall(func), argument1(arg1), deadline(ddln) {}
 
 function<bool(string)> Timer::getFunction()
 {
@@ -14,15 +14,12 @@ int Timer::getDeadline() const
 	return deadline;
 }
 
-// TODO Actually call the function
 bool Timer::callFunction()
 {
-	std::cout << "FUNCTION WOULD BE CALLED HERE";
-	return true;
+	return funcToCall(argument1);
 }
 
 bool Timer::operator==(const Timer& other)
 {
-	return areFunctionsEqual(funcToCall, other.funcToCall)
-		&& deadline == other.deadline;
+	return areFunctionsEqual(funcToCall, other.funcToCall) && deadline == other.deadline;
 }

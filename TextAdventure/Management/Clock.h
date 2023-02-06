@@ -19,7 +19,7 @@ public:
 
 	bool tick();
 	int getGameTime();
-	void startTimer(function<bool(string)> func, int length);
+	void startTimer(function<bool(string)> func, string arg1, int length);
 
 private:
 	shared_ptr<PlayerState> player;

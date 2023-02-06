@@ -15,7 +15,7 @@ void CommandHandler::handle(string command)
 
 bool CommandHandler::testFunc(string str)
 {
-	printer->debug(DebugType::log, "THE TEST FUNCTION HAS BEEN CALLED!");
+	printer->debug(DebugType::log, "Test function called with argument of: " + str);
 	return true;
 }
 
@@ -49,7 +49,7 @@ bool CommandHandler::execute(string command)
 	}
 	else if (command == "start timer")
 	{
-		clock->startTimer(std::bind(&CommandHandler::testFunc, this, std::placeholders::_1), 3);
+		clock->startTimer(std::bind(&CommandHandler::testFunc, this, std::placeholders::_1), "my test string", 3);
 		shouldTick = false;
 	}
 	else if (command == WAIT)

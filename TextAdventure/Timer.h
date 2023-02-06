@@ -7,8 +7,9 @@ using std::string;
 class Timer
 {
 public:
-	Timer(function<bool(string)> func, int ddln);
+	Timer(function<bool(string)> func, string arg1, int ddln);
 	function<bool(string)> getFunction();
+	string argument1;
 	int getDeadline() const;
 	bool callFunction();
 	bool operator==(const Timer& other);

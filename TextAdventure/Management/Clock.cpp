@@ -46,9 +46,9 @@ int Clock::getGameTime()
 	return gameTime;
 }
 
-void Clock::startTimer(function<bool(string)> func, int length)
+void Clock::startTimer(function<bool(string)> func, string arg1, int length)
 {
-	Timer timer(func, gameTime + length);
+	Timer timer(func, arg1, gameTime + length);
 
 	timers.push_back(timer);
 }
