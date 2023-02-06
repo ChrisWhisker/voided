@@ -14,7 +14,7 @@ class Printer;
 
 class Clock {
 public:
-	Clock(shared_ptr<PlayerState> ps, shared_ptr<Printer> printer);
+	Clock(shared_ptr<PlayerState> t_player, shared_ptr<Printer> t_printer);
 
 	bool tick();
 	int getGameTime();

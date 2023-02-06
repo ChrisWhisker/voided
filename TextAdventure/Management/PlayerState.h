@@ -8,7 +8,7 @@ class Printer;
 
 class PlayerState {
 public:
-	PlayerState(shared_ptr<Printer> prtr);
+	PlayerState(shared_ptr<Printer> t_printer);
 
 	string mainStats();
 	string combatStats();

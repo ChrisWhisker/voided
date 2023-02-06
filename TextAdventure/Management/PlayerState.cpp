@@ -4,7 +4,7 @@
 #include <iostream>
 using std::to_string;
 
-PlayerState::PlayerState(shared_ptr<Printer> prtr) : printer(prtr) {
+PlayerState::PlayerState(shared_ptr<Printer> t_printer) : printer(t_printer) {
 	health = 62;
 	oxygen = 100;
 	resistance = 5;

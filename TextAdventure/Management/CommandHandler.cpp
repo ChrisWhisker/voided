@@ -3,7 +3,7 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-CommandHandler::CommandHandler(shared_ptr<Clock> clk, shared_ptr<Printer> prtr) : clock(clk), printer(prtr) {}
+CommandHandler::CommandHandler(shared_ptr<Clock> t_clock, shared_ptr<Printer> t_printer) : clock(t_clock), printer(t_printer) {}
 
 void CommandHandler::handle(string command) {
 	printer->resetColor();

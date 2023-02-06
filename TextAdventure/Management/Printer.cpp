@@ -9,12 +9,12 @@ using std::endl;
 using std::this_thread::sleep_for;
 using std::to_string;
 
-Printer::Printer(shared_ptr<PlayerState> plr) : player(plr) {
+Printer::Printer(shared_ptr<PlayerState> t_player) : player(t_player) {
 	srand((unsigned int)time(0));
 }
 
-void Printer::setPlayerState(shared_ptr<PlayerState> plr) {
-	player = plr;
+void Printer::setPlayerState(shared_ptr<PlayerState> t_player) {
+	player = t_player;
 }
 
 void Printer::prompt() {

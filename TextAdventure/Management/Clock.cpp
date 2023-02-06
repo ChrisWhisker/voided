@@ -2,7 +2,7 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-Clock::Clock(shared_ptr<PlayerState> ps, shared_ptr<Printer> prtr) : player(ps), printer(prtr) {
+Clock::Clock(shared_ptr<PlayerState> t_player, shared_ptr<Printer> t_printer) : player(t_player), printer(t_printer) {
 	gameTime = 0;
 }
 

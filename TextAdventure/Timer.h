@@ -6,7 +6,7 @@ using std::string;
 
 class Timer {
 public:
-	Timer(function<bool(string)> func, string arg1, int ddln);
+	Timer(function<bool(string)> t_funcToCall, string t_argument1, int t_deadline);
 	function<bool(string)> getFunction();
 	string argument1;
 	int getDeadline() const;

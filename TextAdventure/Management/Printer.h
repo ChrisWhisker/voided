@@ -11,8 +11,8 @@ enum class DebugType { log = 47, warning = 43, error = 41 };
 
 class Printer {
 public:
-	Printer(shared_ptr<PlayerState> plr);
-	void setPlayerState(shared_ptr<PlayerState> plr);
+	Printer(shared_ptr<PlayerState> t_player);
+	void setPlayerState(shared_ptr<PlayerState> t_player);
 
 	void prompt();
 	void print(string str);

@@ -2,7 +2,7 @@
 #include "Management/Printer.h"
 #include <iostream>
 
-Timer::Timer(function<bool(string)> func, string arg1, int ddln) : funcToCall(func), argument1(arg1), deadline(ddln) {}
+Timer::Timer(function<bool(string)> t_funcToCall, string t_argument1, int t_deadline) : funcToCall(t_funcToCall), argument1(t_argument1), deadline(t_deadline) {}
 
 function<bool(string)> Timer::getFunction() {
 	return funcToCall;
