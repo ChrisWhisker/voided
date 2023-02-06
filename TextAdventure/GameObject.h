@@ -7,9 +7,6 @@ class GameObject
 {
 public:
 	std::array<string, 3> names = { "name", "othername", "otherOtherName" };
-
 	string inspect();
-	void interact();
-
-private:
+	string use(); // use it for its main purpose
 };
