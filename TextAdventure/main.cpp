@@ -2,7 +2,7 @@
 #include "Management/Clock.h"
 #include "Management/CommandHandler.h"
 #include "Management/PlayerState.h"
-#include "Management/Printer.h"
+#include "Management/Printing/Printer.h"
 #include <iostream>
 using std::make_shared;
 
@@ -23,7 +23,6 @@ int main() {
 		"you're alone. The only thing you remember is losing control of your ship and preparing to crash land on a "
 		"planet you don't recognize. A sensation of wetness makes itself known on the side of your head. You need to "
 		"stop the bleeding.");
-	printer->printMainStats();
 
 	Ship ship;
 	ship.enter();

@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard_C>Default</LanguageStandard_C>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -145,7 +145,9 @@
     <ClCompile Include="Management\Clock.cpp" />
     <ClCompile Include="Management\CommandHandler.cpp" />
     <ClCompile Include="Management\PlayerState.cpp" />
-    <ClCompile Include="Management\Printer.cpp" />
+    <ClCompile Include="Management\Printing\Logger.cpp" />
+    <ClCompile Include="Management\Printing\Printer.cpp" />
+    <ClCompile Include="Management\Printing\PrinterBase.cpp" />
     <ClCompile Include="Management\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +166,9 @@
     <ClInclude Include="Management\Clock.h" />
     <ClInclude Include="Management\CommandHandler.h" />
     <ClInclude Include="Management\PlayerState.h" />
-    <ClInclude Include="Management\Printer.h" />
+    <ClInclude Include="Management\Printing\Logger.h" />
+    <ClInclude Include="Management\Printing\Printer.h" />
+    <ClInclude Include="Management\Printing\PrinterBase.h" />
     <ClInclude Include="Management\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

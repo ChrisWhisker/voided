@@ -1,6 +1,5 @@
 #include "Clock.h"
 #include "PlayerState.h"
-#include "Printer.h"
 
 Clock::Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t_printer) : player(t_player), printer(t_printer) {
 	gameTime = 0;
@@ -9,14 +8,13 @@ Clock::Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t
 bool Clock::tick() {
 	bool success = true;
 	gameTime++;
-	printer->debug(DebugType::log, "gameTime is: " + std::to_string(gameTime));
+	log.print("gameTime is: ", gameTime);
 	player->addHealth(-3);
 
 	vector<Timer> completedTimers;
 
 	for (auto timer : timers) {
-		printer->debug(DebugType::log, "Timer will call function at gameTime of: "
-			+ std::to_string(timer.getDeadline()));
+		log.print("Timer will call function at gameTime of: ", timer.getDeadline());
 
 		if (gameTime >= timer.getDeadline()) {
 			if (timer.callFunction()) // call function

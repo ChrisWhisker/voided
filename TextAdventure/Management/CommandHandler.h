@@ -1,4 +1,5 @@
 #pragma once
+#include "Printing/Logger.h"
 #include <functional>
 #include <memory>
 #include <string>
@@ -20,6 +21,7 @@ public:
 private:
 	shared_ptr<Clock> clock;
 	shared_ptr<Printer> printer;
+	Logger log = Logger("CommandHandler");
 
 	bool execute(string command);
 

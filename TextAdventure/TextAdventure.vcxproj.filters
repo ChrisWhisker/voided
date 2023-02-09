@@ -27,9 +27,6 @@
     <ClCompile Include="Management\PlayerState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Management\Printer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Management\Clock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,6 +66,15 @@
     <ClCompile Include="LevelDesign\Ship\ShipCorridor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Management\Printing\PrinterBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Management\Printing\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Management\Printing\Printer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -78,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Management\PlayerState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Management\Printer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Management\Clock.h">
@@ -120,6 +123,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LevelDesign\Ship\ShipCorridor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Printing\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Printing\Printer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Printing\PrinterBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

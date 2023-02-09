@@ -1,4 +1,5 @@
 #pragma once
+#include "Printing/Logger.h"
 #include "Timer.h"
 #include <functional>
 #include <memory>
@@ -23,6 +24,8 @@ public:
 private:
 	shared_ptr<PlayerState> player;
 	shared_ptr<Printer> printer;
+	Logger log = Logger("Clock");
+
 	int gameTime;
 	vector<Timer> timers;
 };

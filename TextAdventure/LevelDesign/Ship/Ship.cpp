@@ -36,11 +36,12 @@ Ship::Ship() {
 
 	roomGraph->addEdge(quarters, outside);
 
-	//cout << "num nodes (should be 6): " << roomGraph->GetNumNodes() << endl;
-	//auto corridorAdjacents = roomGraph->GetAdjacents(corridor);
-	//cout << "Printing corridor adjacents: " << endl;
+	//log.print("num nodes (should be 6): ", roomGraph->getNumNodes());
+
+	//auto corridorAdjacents = roomGraph->getAdjacents(corridor);
+	//log.warning("Printing corridor adjacents:");
 
 	//for (auto adj : corridorAdjacents) {
-	//	cout << adj->getName() << " " << adj->GetId() << endl;
+	//	log.error(adj->getName() + " " + std::to_string(adj->GetId()));
 	//}
 }

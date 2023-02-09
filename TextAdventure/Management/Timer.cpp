@@ -1,5 +1,4 @@
 #include "Timer.h"
-#include "Printer.h"
 #include <iostream>
 
 Timer::Timer(const function<bool(string)> t_funcToCall, string t_argument1, int t_deadline)

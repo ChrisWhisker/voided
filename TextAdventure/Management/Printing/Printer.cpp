@@ -1,5 +1,5 @@
 #include "Printer.h"
-#include "PlayerState.h"
+#include "../PlayerState.h"
 #include <chrono>
 #include <iostream>
 #include <thread>
@@ -37,7 +37,7 @@ void Printer::newLine() const {
 }
 
 void Printer::type(string str) const {
-	if (debugMode) {
+	if (skipTyping) {
 		print(str);
 		return;
 	}
@@ -53,7 +53,7 @@ void Printer::type(string str, TextColor color) const {
 }
 
 void Printer::typeByLine(string str) const {
-	if (debugMode) {
+	if (skipTyping) {
 		print(str);
 		return;
 	}
@@ -70,7 +70,7 @@ void Printer::typeByLine(string str, TextColor color) const {
 
 void Printer::printMainStats() const {
 	if (!player) {
-		debug(DebugType::error, "PlayerState is not set on Printer.");
+		log.error("PlayerState is not set.");
 		return;
 	}
 	printStats(player->mainStats());
@@ -78,7 +78,7 @@ void Printer::printMainStats() const {
 
 void Printer::printCombatStats() const {
 	if (!player) {
-		debug(DebugType::error, "PlayerState is not set on Printer.");
+		log.error("PlayerState is not set.");
 		return;
 	}
 	printStats(player->combatStats());
@@ -86,42 +86,10 @@ void Printer::printCombatStats() const {
 
 void Printer::printAllStats() const {
 	if (!player) {
-		debug(DebugType::error, "PlayerState is not set on Printer.");
+		log.error("PlayerState is not set.");
 		return;
 	}
 	printStats(player->allStats());
-}
-
-void Printer::resetColor() const {
-	cout << "\033[0m";
-}
-
-void Printer::debug(DebugType type, string message) const {
-	if (debugMode) {
-		setTextColor(TextColor::black);
-		cout << "\033[" << to_string((int)type) << "m";
-
-		switch (type) {
-		case DebugType::log:
-			cout << "Log";
-			break;
-		case DebugType::warning:
-			cout << "Warning";
-			break;
-		case DebugType::error:
-			cout << "Error";
-			break;
-		default:
-			cout << "Unspecified";
-			break;
-		}
-		resetColor();
-		cout << "\t" << message << endl;
-	}
-}
-
-void Printer::debug(DebugType type, string message, int intVal) const {
-	debug(type, to_string(intVal));
 }
 
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine) const {
@@ -142,10 +110,4 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 
 void Printer::printStats(string stats) const {
 	cout << "==========\n" << stats << endl;
-}
-
-void Printer::setTextColor(TextColor color) const {
-	cout << "\033[" + to_string((int)color) + "m";
-	// light variations:
-	// red 91, yellow 93, green 92, cyan 96, blue 94, magenta 95, black 90
 }
