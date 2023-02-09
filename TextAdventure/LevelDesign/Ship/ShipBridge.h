@@ -1,5 +1,5 @@
 #pragma once
-#include "Room.h"
+#include "../Room.h"
 
 class ShipBridge : public Room {
 public:

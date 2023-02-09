@@ -1,8 +1,8 @@
+#include "LevelDesign/Ship/Ship.h"
 #include "Management/Clock.h"
 #include "Management/CommandHandler.h"
 #include "Management/PlayerState.h"
 #include "Management/Printer.h"
-#include "ShipBridge.h"
 #include <iostream>
 using std::make_shared;
 
@@ -25,8 +25,8 @@ int main() {
 		"stop the bleeding.");
 	printer->printMainStats();
 
-	ShipBridge bridge;
-	bridge.enter();
+	Ship ship;
+	ship.enter();
 	printer->prompt();
 
 	string command;

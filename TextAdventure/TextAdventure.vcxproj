@@ -130,28 +130,42 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="LevelDesign\Area.cpp" />
+    <ClCompile Include="LevelDesign\Graph.cpp" />
+    <ClCompile Include="LevelDesign\Room.cpp" />
+    <ClCompile Include="LevelDesign\Ship\Ship.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipBridge.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipCargoBay.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipCorridor.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipEngine.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipOutside.cpp" />
+    <ClCompile Include="LevelDesign\Ship\ShipQuarters.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Management\Clock.cpp" />
     <ClCompile Include="Management\CommandHandler.cpp" />
     <ClCompile Include="Management\PlayerState.cpp" />
     <ClCompile Include="Management\Printer.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="ShipBridge.cpp" />
-    <ClCompile Include="ShipPassageway.cpp" />
-    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Management\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="LevelDesign\Area.h" />
+    <ClInclude Include="LevelDesign\Graph.h" />
+    <ClInclude Include="LevelDesign\Room.h" />
+    <ClInclude Include="LevelDesign\Ship\Ship.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipBridge.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipCargoBay.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipCorridor.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipEngine.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipOutside.h" />
+    <ClInclude Include="LevelDesign\Ship\ShipQuarters.h" />
     <ClInclude Include="Management\Clock.h" />
     <ClInclude Include="Management\CommandHandler.h" />
     <ClInclude Include="Management\PlayerState.h" />
     <ClInclude Include="Management\Printer.h" />
-    <ClInclude Include="Room.h" />
-    <ClInclude Include="ShipBridge.h" />
-    <ClInclude Include="ShipPassageway.h" />
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Management\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Timer.h"
+#include "Timer.h"
 #include <functional>
 #include <memory>
 #include <string>
