@@ -8,6 +8,11 @@ int Room::GetId() const {
 	return id;
 }
 
-string Room::getName() {
+string Room::getName() const {
 	return name;
+}
+
+void Room::enter() const {
+	// if first time entering, print intro
+	// otherwise print reIntro
 }

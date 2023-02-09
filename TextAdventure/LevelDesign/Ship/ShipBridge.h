@@ -4,5 +4,5 @@
 class ShipBridge : public Room {
 public:
 	ShipBridge();
-	void enter() override;
+	void enter() const override;
 };

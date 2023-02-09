@@ -9,7 +9,7 @@ class Area {
 public:
 	Area();
 	void enter();
-	void enter(shared_ptr<Room> entrance);
+	void enter(const shared_ptr<Room> entrance);
 
 protected:
 	vector<shared_ptr<Room>> rooms;

@@ -4,5 +4,5 @@ ShipOutside::ShipOutside() {
 	name = "Outside";
 }
 
-void ShipOutside::enter() {
+void ShipOutside::enter() const {
 }

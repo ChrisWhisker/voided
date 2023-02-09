@@ -4,5 +4,5 @@
 class ShipOutside : public Room {
 public:
 	ShipOutside();
-	void enter() override;
+	void enter() const override;
 };

@@ -10,8 +10,8 @@ class Room {
 public:
 	Room();
 	int GetId() const;
-	string getName();
-	virtual void enter() = 0;
+	string getName() const;
+	virtual void enter() const;
 
 protected:
 	int id;

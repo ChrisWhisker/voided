@@ -4,5 +4,5 @@ ShipCargoBay::ShipCargoBay() {
 	name = "Cargo Bay";
 }
 
-void ShipCargoBay::enter() {
+void ShipCargoBay::enter() const {
 }

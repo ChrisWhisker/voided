@@ -8,6 +8,6 @@ void Area::enter() {
 	rooms[0]->enter();
 }
 
-void Area::enter(shared_ptr<Room> entrance) {
+void Area::enter(const shared_ptr<Room> entrance) {
 	entrance->enter();
 }

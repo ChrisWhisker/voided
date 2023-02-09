@@ -3,7 +3,7 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-CommandHandler::CommandHandler(shared_ptr<Clock> t_clock, shared_ptr<Printer> t_printer)
+CommandHandler::CommandHandler(const shared_ptr<Clock> t_clock, const shared_ptr<Printer> t_printer)
 	: clock(t_clock), printer(t_printer) {
 }
 
@@ -12,7 +12,7 @@ void CommandHandler::handle(string command) {
 	execute(command);
 }
 
-bool CommandHandler::testFunc(string str) {
+bool CommandHandler::testFunc(string str) const {
 	printer->debug(DebugType::log, "Test function called with argument of: " + str);
 	return true;
 }

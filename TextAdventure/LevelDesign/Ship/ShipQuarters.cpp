@@ -4,5 +4,5 @@ ShipQuarters::ShipQuarters() {
 	name = "Quarters";
 }
 
-void ShipQuarters::enter() {
+void ShipQuarters::enter() const {
 }

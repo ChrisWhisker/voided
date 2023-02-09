@@ -2,7 +2,7 @@
 #include "PlayerState.h"
 #include "Printer.h"
 
-Clock::Clock(shared_ptr<PlayerState> t_player, shared_ptr<Printer> t_printer) : player(t_player), printer(t_printer) {
+Clock::Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t_printer) : player(t_player), printer(t_printer) {
 	gameTime = 0;
 }
 
@@ -38,7 +38,7 @@ bool Clock::tick() {
 	return success;
 }
 
-int Clock::getGameTime() {
+int Clock::getGameTime() const {
 	return gameTime;
 }
 

@@ -6,35 +6,37 @@ using std::shared_ptr;
 using std::string;
 
 class PlayerState;
+
 enum class TextColor {
 	black = 30, red = 31, green = 32, yellow = 33,
 	blue = 34, magenta = 35, cyan = 36, white = 37
 };
+
 enum class DebugType { log = 47, warning = 43, error = 41 };
 
 class Printer {
 public:
-	Printer(shared_ptr<PlayerState> t_player);
-	void setPlayerState(shared_ptr<PlayerState> t_player);
+	Printer(const shared_ptr<PlayerState> t_player);
+	void setPlayerState(const shared_ptr<PlayerState> t_player);
 
-	void prompt();
-	void print(string str);
-	void print(string str, TextColor color);
-	void newLine();
-	void type(string str);
-	void type(string str, TextColor color);
-	void typeByLine(string str);
-	void typeByLine(string str, TextColor color);
+	void prompt() const;
+	void print(string str) const;
+	void print(string str, TextColor color) const;
+	void newLine() const;
+	void type(string str) const;
+	void type(string str, TextColor color) const;
+	void typeByLine(string str) const;
+	void typeByLine(string str, TextColor color) const;
 
-	void printMainStats();
-	void printCombatStats();
-	void printAllStats();
+	void printMainStats() const;
+	void printCombatStats() const;
+	void printAllStats() const;
 
-	void resetColor();
+	void resetColor() const;
 
-	bool debugMode = false;
-	void debug(DebugType type, string str);
-	void debug(DebugType type, string message, int intVal);
+	bool debugMode = true;
+	void debug(DebugType type, string str) const;
+	void debug(DebugType type, string message, int intVal) const;
 
 private:
 	shared_ptr<PlayerState> player;
@@ -45,7 +47,7 @@ private:
 		"What are you doing now?", "Your next move?"
 	};
 
-	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine);
-	void printStats(string stats);
-	void setTextColor(TextColor color);
+	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine) const;
+	void printStats(string stats) const;
+	void setTextColor(TextColor color) const;
 };

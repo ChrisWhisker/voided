@@ -12,10 +12,10 @@ class Printer;
 
 class CommandHandler {
 public:
-	CommandHandler(shared_ptr<Clock> t_clock, shared_ptr<Printer> t_printer);
+	CommandHandler(const shared_ptr<Clock> t_clock, const shared_ptr<Printer> t_printer);
 
 	void handle(string command);
-	bool testFunc(string str);
+	bool testFunc(string str) const;
 
 private:
 	shared_ptr<Clock> clock;

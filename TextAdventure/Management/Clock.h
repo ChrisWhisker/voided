@@ -14,10 +14,10 @@ class Printer;
 
 class Clock {
 public:
-	Clock(shared_ptr<PlayerState> t_player, shared_ptr<Printer> t_printer);
+	Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t_printer);
 
 	bool tick();
-	int getGameTime();
+	int getGameTime() const;
 	void startTimer(function<bool(string)> func, string arg1, int length);
 
 private:

@@ -6,8 +6,12 @@ Graph::Graph(int t_nodeCount) : nodeCount(t_nodeCount) {
 	adjacencyList.resize(t_nodeCount);
 }
 
-void Graph::AddEdge(const shared_ptr<Room> nodeA, const shared_ptr<Room> nodeB) {
-	if (HasEdge(nodeA, nodeB)) {
+int Graph::getNumNodes() const {
+	return nodeCount;
+}
+
+void Graph::addEdge(const shared_ptr<Room> nodeA, const shared_ptr<Room> nodeB) {
+	if (hasEdge(nodeA, nodeB)) {
 		return;
 	}
 
@@ -15,17 +19,13 @@ void Graph::AddEdge(const shared_ptr<Room> nodeA, const shared_ptr<Room> nodeB) 
 	adjacencyList[nodeB->GetId()].push_back(nodeA);
 }
 
-const vector<shared_ptr<Room>> Graph::GetAdjacents(const shared_ptr<Room> node) const {
-	return adjacencyList[node->GetId()];
-}
-
-int Graph::GetNumNodes() const {
-	return nodeCount;
-}
-
-bool Graph::HasEdge(const shared_ptr<Room> nodeA, const shared_ptr<Room> nodeB) const {
-	vector<shared_ptr<Room>> adjacents = GetAdjacents(nodeA);
+bool Graph::hasEdge(const shared_ptr<Room> nodeA, const shared_ptr<Room> nodeB) const {
+	vector<shared_ptr<Room>> adjacents = getAdjacents(nodeA);
 	return std::any_of(adjacents.begin(), adjacents.end(), [&nodeB](const shared_ptr<Room> x) {
 		return x->GetId() == nodeB->GetId();
 		});
+}
+
+const vector<shared_ptr<Room>> Graph::getAdjacents(const shared_ptr<Room> node) const {
+	return adjacencyList[node->GetId()];
 }

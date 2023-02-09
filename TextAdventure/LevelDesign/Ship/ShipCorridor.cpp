@@ -4,5 +4,5 @@ ShipCorridor::ShipCorridor() {
 	name = "Passageway";
 }
 
-void ShipCorridor::enter() {
+void ShipCorridor::enter() const {
 }

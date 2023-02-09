@@ -26,15 +26,15 @@ Ship::Ship() {
 	};
 
 	roomGraph = std::make_unique<Graph>((int)rooms.size());
-	roomGraph->AddEdge(bridge, corridor);
+	roomGraph->addEdge(bridge, corridor);
 
-	roomGraph->AddEdge(corridor, engine);
-	roomGraph->AddEdge(corridor, cargoBay);
-	roomGraph->AddEdge(corridor, quarters);
+	roomGraph->addEdge(corridor, engine);
+	roomGraph->addEdge(corridor, cargoBay);
+	roomGraph->addEdge(corridor, quarters);
 
-	roomGraph->AddEdge(cargoBay, outside);
+	roomGraph->addEdge(cargoBay, outside);
 
-	roomGraph->AddEdge(quarters, outside);
+	roomGraph->addEdge(quarters, outside);
 
 	//cout << "num nodes (should be 6): " << roomGraph->GetNumNodes() << endl;
 	//auto corridorAdjacents = roomGraph->GetAdjacents(corridor);

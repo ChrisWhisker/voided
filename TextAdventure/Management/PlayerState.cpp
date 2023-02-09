@@ -13,20 +13,20 @@ PlayerState::PlayerState(shared_ptr<Printer> t_printer) : printer(t_printer) {
 	level = 1;
 }
 
-string PlayerState::mainStats() {
+string PlayerState::mainStats() const {
 	return "Health: " + to_string(health) + SPACE
 		+ "Oxygen Level: " + to_string(oxygen) + SPACE
 		+ "Player Level: " + to_string(level);
 }
 
-string PlayerState::combatStats() {
+string PlayerState::combatStats() const {
 	return "Health: " + to_string(health) + SPACE
 		+ "Damage Resistance: " + to_string(oxygen) + SPACE
 		+ "Attack Strength: " + to_string(oxygen) + SPACE
 		+ "Speed: " + to_string(speed) + SPACE;
 }
 
-string PlayerState::allStats() {
+string PlayerState::allStats() const {
 	return "Health: " + to_string(health) + SPACE
 		+ "Oxygen Level: " + to_string(oxygen) + SPACE
 		+ "Damage Resistance: " + to_string(oxygen) + SPACE
@@ -43,6 +43,5 @@ int PlayerState::addHealth(int healthToAdd) {
 		printer->type("You died.");
 		exit(0);
 	}
-
 	return healthToAdd;
 }

@@ -3,7 +3,7 @@
 
 class Item : public GameObject {
 public:
-	string pickUp();
-	string drop();
-	string throwAt(string target);
+	string pickUp() const;
+	string drop() const;
+	string throwAt(string target) const;
 };

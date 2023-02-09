@@ -8,11 +8,11 @@ class Printer;
 
 class PlayerState {
 public:
-	PlayerState(shared_ptr<Printer> t_printer);
+	PlayerState(const shared_ptr<Printer> t_printer);
 
-	string mainStats();
-	string combatStats();
-	string allStats();
+	string mainStats() const;
+	string combatStats() const;
+	string allStats() const;
 
 	int addHealth(int healthToAdd);
 

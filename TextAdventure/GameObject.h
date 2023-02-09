@@ -6,6 +6,6 @@ using std::string;
 class GameObject {
 public:
 	std::vector<string> names = { "name", "othername", "otherOtherName" };
-	string inspect();
-	string use(); // use it for its main purpose
+	virtual string inspect() const;
+	virtual string use() const; // use it for its main purpose
 };

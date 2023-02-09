@@ -9,5 +9,5 @@ ShipBridge::ShipBridge() {
 	extraDetails = "Sparks are flying from the console. Looking more closely, you notice the panel has come loose.";
 }
 
-void ShipBridge::enter() {
+void ShipBridge::enter() const {
 }
