@@ -1,8 +1,10 @@
 #include "Room.h"
+#include "../Management/Printing/Printer.h"
 
 int Room::nextId = 0;
 
-Room::Room() : id(nextId++) {}
+Room::Room(string t_name) : id(nextId++), name(t_name) {
+}
 
 int Room::GetId() const {
 	return id;
@@ -12,7 +14,16 @@ string Room::getName() const {
 	return name;
 }
 
-void Room::enter() const {
-	// if first time entering, print intro
-	// otherwise print reIntro
+string Room::enter() {
+	if (!hasVisited) {
+		hasVisited = true;
+		return intro;
+	}
+	else {
+		return reIntro;
+	}
+}
+
+void Room::setIntro(string t_intro) {
+	intro = t_intro;
 }

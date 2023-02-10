@@ -36,34 +36,10 @@
     <ClCompile Include="LevelDesign\Graph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LevelDesign\Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipOutside.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipQuarters.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipBridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipCargoBay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Management\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LevelDesign\Area.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\Ship.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelDesign\Ship\ShipCorridor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Management\Printing\PrinterBase.cpp">
@@ -73,6 +49,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Management\Printing\Printer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelDesign\Ship.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelDesign\Room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,34 +77,10 @@
     <ClInclude Include="LevelDesign\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LevelDesign\Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipCargoBay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipOutside.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipQuarters.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipBridge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Management\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LevelDesign\Area.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\Ship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelDesign\Ship\ShipCorridor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Management\Printing\Logger.h">
@@ -132,6 +90,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Management\Printing\PrinterBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelDesign\Ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelDesign\Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
