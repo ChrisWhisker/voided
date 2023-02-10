@@ -28,7 +28,6 @@ public:
 	void printAllStats() const;
 
 private:
-	static const bool skipTyping = false;
 	shared_ptr<PlayerState> player;
 	Logger log = Logger("Printer");
 

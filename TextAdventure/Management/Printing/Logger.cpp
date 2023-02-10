@@ -31,7 +31,7 @@ void Logger::error(string str, int value) const {
 }
 
 void Logger::debug(DebugType type, string str) const {
-	if (!debugging) {
+	if (!logsEnabled) {
 		return;
 	}
 

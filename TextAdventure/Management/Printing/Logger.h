@@ -5,7 +5,6 @@ using std::string;
 class Logger : public PrinterBase {
 public:
 	Logger(string t_className);
-	static const bool debugging = false;
 
 	void print(string str) const override;
 	void print(string str, int value) const;

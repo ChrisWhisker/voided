@@ -31,7 +31,7 @@ Ship::Ship(shared_ptr<Printer> t_printer) : Area(t_printer), printer(t_printer) 
 
 	bridge->setIntro("You awaken with a throbbing headache. Slowly opening your eyes, you see you're alone, still "
 		"buckled into the pilot's seat of a star frighter. Looking around the bridge, you see the captain and "
-		"first mate's bodies slumped against the bulkheads. The last thing you remember is losing control of the ship and "
+		"first mate's bodies slumped against the bulkhead. The last thing you remember is losing control of the ship and "
 		"preparing for a crash landing on an unknown planet. The blaring klaxon down the passageway barely drowns out the "
 		"ringing in your ears. A sudden sensation of wetness makes itself known on the side of your head. You need to find "
 		"a way to stop the bleeding.");

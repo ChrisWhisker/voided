@@ -42,7 +42,7 @@ void Printer::newLine() const {
 }
 
 void Printer::type(string str) const {
-	if (skipTyping) {
+	if (!typeOutText) {
 		print(str);
 		return;
 	}
@@ -58,7 +58,7 @@ void Printer::type(string str, TextColor color) const {
 }
 
 void Printer::typeByLine(string str) const {
-	if (skipTyping) {
+	if (!typeOutText) {
 		print(str);
 		return;
 	}
