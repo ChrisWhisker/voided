@@ -23,7 +23,7 @@ string PlayerState::combatStats() const {
 	return "Health: " + to_string(health) + SPACE
 		+ "Damage Resistance: " + to_string(oxygen) + SPACE
 		+ "Attack Strength: " + to_string(oxygen) + SPACE
-		+ "Speed: " + to_string(speed) + SPACE;
+		+ "Speed: " + to_string(speed);
 }
 
 string PlayerState::allStats() const {

@@ -52,6 +52,6 @@ private:
 		// Metagame commands
 		Command({INVENTORY}, "View your inventory"),
 		Command({STATS}, "View your stats"),
-		Command({HELP}, "Repeat this list of commands"),
+		Command({HELP}, "Repeat this list of commands")
 	};
 };

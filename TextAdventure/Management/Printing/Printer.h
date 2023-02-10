@@ -40,4 +40,5 @@ private:
 
 	void typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine) const;
 	void printStats(string stats) const;
+	string wordWrap(string str) const;
 };

@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
+#include <vector>
 using std::chrono::milliseconds;
 using std::cout;
 using std::endl;
@@ -23,7 +24,11 @@ void Printer::prompt() const {
 }
 
 void Printer::print(string str) const {
-	cout << str << endl;
+	if (str.find("\n") != string::npos) {
+		cout << str << endl;
+		return;
+	}
+	cout << wordWrap(str) << endl;
 }
 
 void Printer::print(string str, TextColor color) const {
@@ -42,7 +47,7 @@ void Printer::type(string str) const {
 		return;
 	}
 
-	typeText(str, 1, 30, 200);
+	typeText(wordWrap(str), 1, 30, 30);
 	cout << endl;
 }
 
@@ -95,6 +100,7 @@ void Printer::printAllStats() const {
 void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfterLine) const {
 	for (char c : str) {
 		cout << c;
+
 		if (c == ' ') {
 			sleep_for(milliseconds(msAfterWord));
 		}
@@ -109,5 +115,48 @@ void Printer::typeText(string str, int msAfterChar, int msAfterWord, int msAfter
 }
 
 void Printer::printStats(string stats) const {
-	cout << "==========\n" << stats << endl;
+	cout << "==========\n" << stats << endl << endl;
+}
+
+string Printer::wordWrap(string str) const {
+	log.print("word wrap called.");
+	string wrappedString;
+	std::vector<string> words;
+
+	// Split the input string into words
+	string word;
+	for (const char& c : str) {
+		if (c == ' ') {
+			words.push_back(word);
+			word.clear();
+		}
+		else {
+			word += c;
+		}
+	}
+	words.push_back(word);
+
+	// Implement word wrapping by inserting line endings into the string
+	int lineStart = 0;
+	int lineEnd = 0;
+
+	while (lineStart < words.size()) {
+		int currentLength = 0;
+
+		while (lineEnd < words.size() && currentLength + words[lineEnd].length() <= 120) {
+			currentLength += words[lineEnd].length() + 1;
+			lineEnd++;
+		}
+
+		for (int i = lineStart; i < lineEnd; i++) {
+			wrappedString += words[i];
+			if (i < lineEnd - 1) {
+				wrappedString += " ";
+			}
+		}
+		wrappedString += "\n";
+		lineStart = lineEnd;
+	}
+
+	return wrappedString;
 }

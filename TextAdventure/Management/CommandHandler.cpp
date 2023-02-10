@@ -23,12 +23,12 @@ bool CommandHandler::execute(string command) {
 
 	if (command == HELP) {
 		shouldTick = false;
-		printer->newLine();
+		string toPrint;
 
 		for (auto command : commands) {
-			printer->print(command.names[0] + "\t\t" + command.helpText);
+			toPrint += command.names[0] + "\t\t" + command.helpText + "\n";
 		}
-		printer->newLine();
+		printer->print(toPrint);
 	}
 	// look at object
 	//else if (command.rfind(LOOK_AT, 0) > -1)
