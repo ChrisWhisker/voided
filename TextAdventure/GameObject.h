@@ -3,6 +3,7 @@
 #include <vector>
 using std::string;
 
+// An object in the game that can be inspected and interacted with
 class GameObject {
 public:
 	std::vector<string> names = { "name", "othername", "otherOtherName" };
