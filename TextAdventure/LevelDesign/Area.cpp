@@ -3,7 +3,7 @@
 #include "Room.h"
 
 Area::Area(shared_ptr<Printer> t_printer) : printer(t_printer) {
-	log.print("in constructor)");
+	log.print("in constructor");
 }
 
 void Area::enter() {

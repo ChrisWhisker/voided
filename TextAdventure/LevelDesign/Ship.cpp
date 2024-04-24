@@ -30,7 +30,7 @@ Ship::Ship(shared_ptr<Printer> t_printer) : Area(t_printer), printer(t_printer) 
 	roomGraph->addEdge(quarters, outside);
 
 	bridge->setIntro("You awaken with a throbbing headache. Slowly opening your eyes, you see you're alone, still "
-		"buckled into the pilot's seat of a star frighter. Looking around the bridge, you see the captain and "
+		"buckled into the pilot's seat of a star freighter. Looking around the bridge, you see the captain and "
 		"first mate's bodies slumped against the bulkhead. The last thing you remember is losing control of the ship and "
 		"preparing for a crash landing on an unknown planet. The blaring klaxon down the passageway barely drowns out the "
 		"ringing in your ears. A sudden sensation of wetness makes itself known on the side of your head. You need to find "
@@ -50,4 +50,7 @@ void Ship::enter() {
 
 void Ship::enter(const shared_ptr<Room> entrance) {
 	printer->type(entrance->enter());
+}
+
+void Ship::setUpBridge(shared_ptr<Room> bridge) {
 }
