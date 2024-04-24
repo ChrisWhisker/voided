@@ -6,26 +6,27 @@ using std::string;
 
 class Printer;
 
-class PlayerState {
+class PlayerState
+{
 public:
-	PlayerState(const shared_ptr<Printer> t_printer);
+    PlayerState(const shared_ptr<Printer> t_printer);
 
-	string mainStats() const;
-	string combatStats() const;
-	string allStats() const;
+    string mainStats() const;
+    string combatStats() const;
+    string allStats() const;
 
-	int addHealth(int healthToAdd);
+    int addHealth(int healthToAdd);
 
 private:
-	shared_ptr<Printer> printer;
+    shared_ptr<Printer> printer;
 
-	string name;
-	int health;
-	int oxygen;
-	int resistance;
-	int attackStrength;
-	int speed;
-	int level;
+    string name;
+    int health;
+    int oxygen;
+    int resistance;
+    int attackStrength;
+    int speed;
+    int level;
 
-	const string SPACE = "    ";
+    const string SPACE = "    ";
 };

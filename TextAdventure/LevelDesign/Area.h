@@ -7,15 +7,19 @@ using std::shared_ptr;
 class Printer;
 class Room;
 
-class Area {
+class Area
+{
+public:
+    virtual ~Area() = default;
+
 protected:
-	Area(shared_ptr<Printer> t_printer); // protected to prevent instantiation
-	shared_ptr<Printer> printer;
-	Logger log = Logger("Area");
+    Area(shared_ptr<Printer> t_printer); // protected to prevent instantiation
+    shared_ptr<Printer> printer;
+    Logger log = Logger("Area");
 
-	vector<shared_ptr<Room>> rooms;
-	std::unique_ptr<Graph> roomGraph;
+    vector<shared_ptr<Room>> rooms;
+    std::unique_ptr<Graph> roomGraph;
 
-	virtual void enter();
-	virtual void enter(const shared_ptr<Room> entrance);
+    virtual void enter();
+    virtual void enter(const shared_ptr<Room> entrance);
 };

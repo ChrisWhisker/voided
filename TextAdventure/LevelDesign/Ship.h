@@ -2,20 +2,21 @@
 #include "Area.h"
 #include "../Management/Printing/Logger.h"
 
-class Ship : public Area {
+class Ship : public Area
+{
 public:
-	Ship(shared_ptr<Printer> t_printer);
-	using Area::enter;
+    Ship(shared_ptr<Printer> t_printer);
+    using Area::enter;
 
-	void enter() override;
-	void enter(const shared_ptr<Room> entrance) override;
+    void enter() override;
+    void enter(const shared_ptr<Room> entrance) override;
 
 private:
-	shared_ptr<Printer> printer;
-	Logger log = Logger("Ship");
+    shared_ptr<Printer> printer;
+    Logger log = Logger("Ship");
 
-	vector<shared_ptr<Room>> rooms;
-	std::unique_ptr<Graph> roomGraph;
+    vector<shared_ptr<Room>> rooms;
+    std::unique_ptr<Graph> roomGraph;
 
-	void setUpBridge(shared_ptr<Room> bridge);
+    void setUpBridge(shared_ptr<Room> bridge);
 };

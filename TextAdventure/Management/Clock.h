@@ -13,19 +13,20 @@ using std::vector;
 class PlayerState;
 class Printer;
 
-class Clock {
+class Clock
+{
 public:
-	Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t_printer);
+    Clock(const shared_ptr<PlayerState> t_player, const shared_ptr<Printer> t_printer);
 
-	bool tick();
-	int getGameTime() const;
-	void startTimer(function<bool(string)> func, string arg1, int length);
+    bool tick();
+    int getGameTime() const;
+    void startTimer(function<bool(string)> func, string arg1, int length);
 
 private:
-	shared_ptr<PlayerState> player;
-	shared_ptr<Printer> printer;
-	Logger log = Logger("Clock");
+    shared_ptr<PlayerState> player;
+    shared_ptr<Printer> printer;
+    Logger log = Logger("Clock");
 
-	int gameTime;
-	vector<Timer> timers;
+    int gameTime;
+    vector<Timer> timers;
 };
