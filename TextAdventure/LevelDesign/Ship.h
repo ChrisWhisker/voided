@@ -16,4 +16,6 @@ private:
 
 	vector<shared_ptr<Room>> rooms;
 	std::unique_ptr<Graph> roomGraph;
+
+	void setUpBridge(shared_ptr<Room> bridge);
 };

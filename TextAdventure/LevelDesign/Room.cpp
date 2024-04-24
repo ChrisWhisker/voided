@@ -19,11 +19,19 @@ string Room::enter() {
 		hasVisited = true;
 		return intro;
 	}
-	else {
-		return reIntro;
-	}
+
+	return reEntry;
 }
 
 void Room::setIntro(string t_intro) {
 	intro = t_intro;
+}
+
+void Room::setReEntry(string t_reEntry) {
+}
+
+void Room::setLookAround(string t_lookAround) {
+}
+
+void Room::setExtraDetails(string t_extraDetails) {
 }
